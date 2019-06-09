@@ -119,91 +119,56 @@
                                 
                                 <!-- Nav tabs -->
                                 <ul class="nav navigation-tabs3">
-                                  <li class="active"><a href="#tab-newtopic" data-toggle="tab"><span class="glyphicon glyphicon-star"></span> Featured</a></li>
-                                  <li><a href="#tab-comments" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span> Popular</a></li>
+                                  <li class="active"><a href="#tab-newtopic" data-toggle="tab"><span class="glyphicon glyphicon-star"></span> Khách sạn nổi bật</a></li>
     
                                 </ul>
                                 
                                 <div class="tab-content4">
                                     <!-- Tab 1 -->
                                     <div class="tab-pane active" id="tab-newtopic">
-                                        <a href="#"><img alt="" class="left mr20" src="images/smallthumb-1.jpg"></a>
-                                        <a class="dark" href="#"><b>Hotel Dany</b></a><br>
-                                        <span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-                                        <img alt="" src="images/filter-rating-5.png">
+                                        @foreach($khachsan as $ks)
+                                        <a href="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html"><img alt="{{$ks->Ten}}" class="left mr20" src="upload/khachsan/{{$ks->Hinh}}" style="
+                                            height: 78px;
+                                            width: 117px;
+                                        "></a>
+                                        <a class="dark" href="#"><b>{{$ks->Ten}}</b></a><br>
+                                        <?php 
+                                        $num = $ks->Gia;  
+                                        $formattedNum = number_format($num);?>
+                                        <span class="opensans green bold size14">{{$formattedNum}} </span> <span class="grey">vnđ/đêm</span><br>
+                                        
+                                        @if($ks->Sao==1)
+                                        <img src="upload/sao/1.png" alt="" class="mt-10"/>
+                                        @elseif($ks->Sao==2)
+                                        <img src="upload/sao/2.png" alt="" class="mt-10"/>
+                                        @elseif($ks->Sao==3)
+                                        <img src="upload/sao/3.png" alt="" class="mt-10"/>
+                                        @elseif($ks->Sao==4)
+                                        <img src="upload/sao/4.png" alt="" class="mt-10"/>
+                                        @elseif($ks->Sao==5)
+                                        <img src="upload/sao/5.png" alt="" class="mt-10"/>
+                                        @endif
                                         <div class="line4"></div>
-                                        <a href="#"><img alt="" class="left mr20" src="images/smallthumb-2.jpg"></a>
-                                        <a class="dark" href="#"><b>Hotel Amaragua</b></a><br>
-                                        <span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-                                        <img alt="" src="images/filter-rating-5.png">
-                                        <div class="line4"></div>
-                                        <a href="#"><img alt="" class="left mr20" src="images/smallthumb-3.jpg"></a>
-                                        <a class="dark" href="#"><b>Hotel Lotus</b></a><br>
-                                        <span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-                                        <img alt="" src="images/filter-rating-5.png">
+                                        @endforeach
                                     </div>
                                     <!-- End of Tab 1 -->
                                     
                                     <!-- Tab 2 -->
-                                    <div class="tab-pane" id="tab-comments">
-                                        <a href="#"><img alt="" class="left mr20" src="images/smallthumb-2.jpg"></a>
-                                        <a class="dark" href="#"><b>Hotel Lotus</b></a><br>
-                                        <span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-                                        <img alt="" src="images/filter-rating-5.png">
-                                        <div class="line4"></div>
-                                        <a href="#"><img alt="" class="left mr20" src="images/smallthumb-3.jpg"></a>
-                                        <a class="dark" href="#"><b>Hotel Dany</b></a><br>
-                                        <span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-                                        <img alt="" src="images/filter-rating-5.png">
-                                        <div class="line4"></div>
-                                        <a href="#"><img alt="" class="left mr20" src="images/smallthumb-1.jpg"></a>
-                                        <a class="dark" href="#"><b>Hotel Amaragua</b></a><br>
-                                        <span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-                                        <img alt="" src="images/filter-rating-5.png">
-                                    </div>
+                                
                                     <!-- End of Tab 2 -->
                                     
                                     <!-- Tab 3 -->
                                     <div class="tab-pane" id="tab-blogcomments">
-    
                                     </div>
                                     <!-- End of Tab 3 -->
                                 </div>
-    
-                                
-                                
-                                <span class="lato size18 dark bold">Archives</span><br/>
-                                <ul class="blogcat">
-                                    <li><a href="#">December 2013</a></li>
-                                    <li><a href="#">November 2013</a></li>
-                                    <li><a href="#">October 2013</a></li>
-                                    <li><a href="#">September 2013</a></li>
-                                    <li><a href="#">August 2013</a></li>
-                                    <li><a href="#">July 2013</a></li>
-                                    <li><a href="#">June 2013</a></li>
-                                    <li><a href="#">May 2013</a></li>
-                                    <li><a href="#">April 2013</a></li>
-                                </ul>
-                                
                                 <br/><br/>
-                                
-                                
-    
-    
                             </div>
                         </div>
                         <!-- END OF IMG RIGHT TEXT -->
                         <div class="clearfix"></div>
                         <br/><br/>
-                        
-                    
-    
-                        
-                        
                     </div>
-                    
-    
-                    
                 <div class="clearfix"></div><br/><br/>
                 </div>
                 <!-- END CONTENT -->			

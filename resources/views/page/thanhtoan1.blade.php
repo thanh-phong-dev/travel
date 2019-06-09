@@ -252,7 +252,6 @@
                 Nhập vào mail của bạn
                 <br> 
                 
-                
                 <div class="col-md-4 textright">
                     <div class="mt15"><span class="dark">Email :</span><span class="red">*</span></div>
                 </div>
@@ -262,7 +261,6 @@
                 <div class="col-md-4 textleft">
                 </div>
                 <div class="clearfix"></div>
-                
                 <br>
                 <br>
                 <span class="size16px bold dark left">Thông tin thêm</span>

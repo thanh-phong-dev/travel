@@ -94,10 +94,11 @@ class PageController extends Controller
 
     public function chitiettintuc1($id)
     {
+        $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(4)->get();
         $loaitin=LoaiTin::orderBy('id', 'DESC')->take(6)->get();
         $tintuc=TinTuc::find($id);
         $tinhluotxem=TinTuc::where('id', $id)->update(['SoLuotXem' => $tintuc->SoLuotXem+1]);
-        return view('page.chitiettintuc', ['tintuc'=>$tintuc,'loaitin'=>$loaitin,'tinhluotxem'=>$tinhluotxem]);
+        return view('page.chitiettintuc', ['khachsan'=>$khachsan,'tintuc'=>$tintuc,'loaitin'=>$loaitin,'tinhluotxem'=>$tinhluotxem]);
     }
 
     public function diadiemdulich($id)

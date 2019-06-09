@@ -448,7 +448,7 @@
                   <ul id="foo2">
                       @foreach($tintuc as $tt)
                       <li>
-                      <a href="list3.html"><img src="upload/tintuc/{{$tt->Hinh}}" alt="" style="
+                      <a href="chi-tiet-tin-tuc/{{$tt->id}}/{{$tt->TieuDeKhongDau}}.html"><img src="upload/tintuc/{{$tt->Hinh}}" alt="" style="
                             height: 179px;
                             width: 255px;
                                  " /></a>

@@ -20,9 +20,9 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
     'facebook' => [
-        'client_id' => env('FACEBOOK_APP_ID'),
-        'client_secret' => env('FACEBOOK_APP_SECRET'),
-        'redirect' => env('FACEBOOK_APP_CALLBACK_URL'),
+        'client_id' => env('1013636048828102'),
+        'client_secret' => env('cdc8e4715a15affaae04574b064aeca9'),
+        'redirect' => env('http://travel.maycaphegiasi.com/auth-social/facebook/callback'),
     ],
     
 
