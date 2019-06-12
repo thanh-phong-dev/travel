@@ -17,6 +17,7 @@ use App\KhachSan;
 use App\PhongKhachSan;
 use App\DatPhong;
 use App\DienDan;
+use App\GioiThieu;
 use App\ChiTietDienDan;
 
 use Carbon\Carbon;
@@ -34,23 +35,20 @@ class PageController extends Controller
         $slide =Slide::all();
         $quangcao =QuangCao::all();
         $user = User::all();
-   
         $tinnoibat=KhachSan::where('NoiBat', '=', 1)->take(2)->get();
-
         $tintucslide=TinTuc::orderBy('id', 'DESC')->take(10)->get();
         $danhsachloaitin=LoaiTin::orderBy('id', 'DESC')->take(5)->get();
-      
+        $gioithieu=GioiThieu::all();
+        view()->share('gioithieu',$gioithieu);
         view()->share('tinnoibat', $tinnoibat);
         view()->share('danhmucanuong', $danhmucanuong);
         view()->share('theloai', $theloai);
         view()->share('loaitin', $loaitin);
-   
         view()->share('slide', $slide);
         view()->share('danhsachloaitin', $danhsachloaitin);
         view()->share('quangcao', $quangcao);
         view()->share('user', $user);
         view()->share('tintucslide', $tintucslide);
-
         $khachsan=KhachSan::orderBy('SoLuotXem', 'DESC')->take(9)->get();
         view()->share('khachsan', $khachsan);
         $tintuc=TinTuc::all();
@@ -62,6 +60,11 @@ class PageController extends Controller
     public function trangchu()
     {
         return view('page.trangchu');
+    }
+
+    public function gioithieu()
+    {
+        return view('page.gioithieu');
     }
     public function tintuc(Request $request)
     {
@@ -81,7 +84,8 @@ class PageController extends Controller
     {
         $khachsan=KhachSan::orderBy('id', 'DESC')->paginate(10);
         return view('page.khachsan1', ['khachsan'=>$khachsan]);
-    }
+    } 
+
     public function chitietkhachsan($id)
     {
         $phongkhachsan=PhongKhachSan::all();
@@ -232,7 +236,7 @@ class PageController extends Controller
     {
         $khachsan=PhongKhachSan::find($id);
         $khachsanmaster=KhachSan::where('id', '=', $khachsan->idkhachsan)->get();
-        return view('page.thanhtoan1', ['khachsan'=>$khachsan,'khachsanmaster'=>$khachsanmaster]);
+        return view('page.thanhtoan', ['khachsan'=>$khachsan,'khachsanmaster'=>$khachsanmaster]);
     }
 
     public function diendan()

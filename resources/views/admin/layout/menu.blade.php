@@ -103,17 +103,17 @@
             </ul>
 
     </li>
-    {{-- Dat phong --}}
-    <li><a href="javascript:void(0);" class="waves-effect"><i
-        class="mdi mdi-format-list-bulleted-type"></i><span>Quản lý đặt phòng <span
-            class="float-right menu-arrow"><i
-                class="mdi mdi-chevron-right"></i></span></span></a>
-    <ul class="submenu">
-    <li><a href="admin/datphong/danhsach">Danh sách đặt phòng</a></li>
-    {{-- <li><a href="admin/tintuc/danhsachchoduyet">Danh sách chờ duyệt</a></li> --}}
-    <li><a href="admin/khachsan/them">Thêm khách sạn</a></li>
+         {{-- Dat phong --}}
+             <li><a href="javascript:void(0);" class="waves-effect"><i
+                class="mdi mdi-format-list-bulleted-type"></i><span>Quản lý đặt phòng <span
+                     class="float-right menu-arrow"><i
+                        class="mdi mdi-chevron-right"></i></span></span></a>
+                     <ul class="submenu">
+                     <li><a href="admin/datphong/danhsach">Danh sách đặt phòng</a></li>
+                       {{-- <li><a href="admin/tintuc/danhsachchoduyet">Danh sách chờ duyệt</a></li> --}}
+                 <li><a href="admin/khachsan/them">Thêm khách sạn</a></li>
 
-</ul>
+            </ul>
 
 </li>
                             {{-- Slide --}}
@@ -134,6 +134,15 @@
                         <li><a href="admin/quangcao/danhsach">Danh sách quảng cáo</a></li>
                         {{-- <li><a href="admin/quangcao/them">Thêm quảng cáo</a></li> --}}
                     </ul>
+                    {{-- Gioi Thieu --}}
+                    <li><a href="javascript:void(0);" class="waves-effect"><i
+                        class="mdi mdi-format-list-bulleted-type"></i><span>Quản Lý Team<span
+                            class="float-right menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></span></a>
+                    <ul class="submenu">
+                    <li><a href="admin/gioithieu/danhsach">Danh sách Team</a></li>
+                    <li><a href="admin/gioithieu/them">Thêm nhân viên</a></li>
+                </ul>
                     {{-- Liên hệ --}}
                     <li><a href="javascript:void(0);" class="waves-effect"><i
                         class="mdi mdi-format-list-bulleted-type"></i><span>Quản Lý Liên Hệ<span

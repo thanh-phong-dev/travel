@@ -1,4 +1,4 @@
-@extends('layout.index1')
+@extends('layout.index2')
 @section('content')
 	<div class="container breadcrub">
             <div>
@@ -48,55 +48,80 @@
                             <span class="grey">{{$dateM}}<a href="#"></a> <a href="#"></a> Đăng bởi {{$tintuc->NguoiDang}} <a href="#"></a>, <span><i class="far fa-eye"></i> {{$tintuc->SoLuotXem}}</span>   </span>
                             <?php $i=count($tintuc->comment)?>
                             <i class="far fa-comments"> {{$i}}</i>
-                            <br/>
-                            
+                            <br>
+                            <a href="http://travel.maycaphegiasi.com/{{$tintuc->id}}/{{$tintuc->TieuDeKhongDau}}.html" class="fa fa-facebook"></a>
+                            <a href="#" class="fa fa-twitter"></a>
+                            <a href="#" class="fa fa-google"></a>
+                            <a href="#" class="fa fa-linkedin"></a>
+                            <a href="#" class="fa fa-youtube"></a>
+                            <a href="#" class="fa fa-instagram"></a>
+                            <br>
+                             <div class="fb-share-button" data-href="http://travel.maycaphegiasi.com/{{$tintuc->id}}/{{$tintuc->TieuDeKhongDau}}.html" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FDu-L%25E1%25BB%258Bch-Vi%25E1%25BB%2587t-2520965421276655%2F%3Fmodal%3Dadmin_todo_tour&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                            <br>
+                            <div class="fb-like" data-href="https://www.facebook.com/Du-L%E1%BB%8Bch-Vi%E1%BB%87t-2520965421276655/?modal=admin_todo_tour" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
                             <div class="line4"></div>
                             {!!$tintuc->NoiDung!!}
                             <br/><br/>
                             <span class="glyphicon glyphicon-tag dark"></span><b>Tags: {{$tintuc->Tag}}</b> 
                             <br/><br/>
-                            @if(Auth::User() == null)
+                            {{-- test --}}
+                            <div class="container">
+                                <h2>Toggleable Tabs</h2>
+                                <br>
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                  <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#home">Bình luận</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#menu1">Bình luận trên FaceBook</a>
+                                  </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                  <div id="home" class="container tab-pane active"><br>
+                                    @if(Auth::User() == null)
                             <span class="size14 dark bold">Bình Luận<span> (đăng nhập để bình luận) ----></span></span>
-                            
                             <a href="dang-nhap.html"><button class="btn btn-primary">Đăng nhập</button> </a>
-                       
                             @else
                             <?php $i=count($tintuc->comment)?>
                             <span class="size14 dark bold">{{$i}} Bình Luận </span>
                             <div class="line4"></div>
-                           
                             <form action="comment/{{$tintuc->id}}" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                             <textarea name="NoiDung" class="form-control" rows="3"></textarea><br/>
                             <button onclick="errorMessage()" type="submit" class="btn-search5">Bình luận <span class="glyphicon glyphicon-arrow-down"></span></button>
                             </form>
                             <br/><br/><br/>
-                            
-                            
-                            @foreach($tintuc->comment as $cm)
-                        
+                            <?php $data=$tintuc->comment->sortbyDesc('id')
+                            ?>
+                            @foreach($data as $cm)
                             <span class="size14 dark bold">Bình luận</span>
                             <div class="line4"></div>
                             <div class="wh20percent left textleft">
                                 <div class="circlewrap2"><img alt="" class="circleimg" src="images/user-avatar.jpg"></div>
                             </div>
-                           
                             <div class="wh80percent right">
-                              
                             <a href="#" class="lblue bold">{{$cm->user->name}}</a><br/>
                              {{$cm->NoiDung}}
                                 <br/><span class="grey size12">{{$cm->created_at}} <a href="#" class="grey"></a></span>
                             </div>
-                        
                             @endforeach
                             <div class="clearfix"></div>
                             <div class="line4"></div>						
-                            
                             <div class="wh10percent left textleft"></div>
-                           
                             <br/>
                             <br/>
                             @endif
+                                  </div>
+                                  <div id="menu1" class="container tab-pane fade"><br>
+                                    <h3>Bình luận</h3>
+                                    <div class="fb-comments" data-href="https://www.facebook.com/ITthanhphong/{{$tintuc->id}}" data-numposts="5"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              {{-- end --}}
+                           
                         </div>
                         <!-- END OF LEFT IMG -->
                         
