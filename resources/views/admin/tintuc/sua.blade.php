@@ -63,9 +63,6 @@
     filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
     filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
                                             });</script>
-                                   
-                                          
-
                                                 <div class="form-group">
                                                 <label>Trạng Thái</label><br/>
                                                  <label class="radio-inline">
@@ -73,14 +70,14 @@
                                                         @if($tintuc->HienThi==1)
                                                       {{"checked"}}
                                                      @endif
-                                                      checked="" type="radio">Có
+                                                      checked="" type="radio">Hiển thị
                                                      </label><br/>
                                                      <label class="radio-inline">
                                                <input name="HienThi" value="0"
                                                         @if($tintuc->HienThi==0)
                                                  {{"checked"}}
                                                   @endif
-                                                   type="radio">Không
+                                                   type="radio">Ẩn
                                                 </label>
                                                         </div>
 

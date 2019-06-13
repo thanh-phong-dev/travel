@@ -24,11 +24,10 @@
                                             <tr>
                                                 <th>STT</th>
                                                 <th>Tên Khách Sạn</th>
+                                                <th>Loại Phòng</th>
                                                 <th>Tên người đặt phòng</th>
                                                 <th>Số điện thoại</th>
-                                             
                                                 <th>Số ngày ở</th>
-
                                                 <th>Hình</th>
                                                 <th>Xem</th>
                                                 <th>Ngày đặt phòng</th>
@@ -42,12 +41,12 @@
                                         <tbody>
                                                 <?php $i=0; ?>
                                                 @foreach($datphong as $tt)
-                                            <tr>
+                                                <tr>
                                                 <?php
-                                                
                                                 ?>
                                                 <td> <?php echo $i; ?></td>
                                                 <td>{{$tt->phong->Ten}}</td>
+                                                <td>{{$tt->LoaiPhong}}</td>
                                                 <td>{{$tt->HoTen}}</td>
                                                 <td>{{$tt->SoDienThoai}}</td>
                                                 <td>{{$tt->SoNgayO}} ngày</td>
@@ -57,11 +56,16 @@
                                                 <td>{{$tt->NgayTra}}</td>
                                                 <td>{{$tt->ThanhTien}}</td>
                                                 <td>{{$tt->Email}}</td>
-
                                                 <td>@if($tt->TinhTrang==0)
-                                                {{"Đang chờ kiểm tra"}}
+                                                    <p style="
+                                                    color: red;
+                                                      ">  {{"Đang chờ kiểm tra"}}</p>
+                                              
                                                 @else
-                                                {{"Đã xác nhận"}}
+                                                <p style="
+                                                color: green;
+                                            ">   {{"Đã xác nhận"}}</p>
+                                             
                                                 @endif
                                                 </td>
 

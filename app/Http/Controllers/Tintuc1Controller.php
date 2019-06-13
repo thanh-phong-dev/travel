@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use App\TheLoai;
 use App\TinTuc;
 use App\LoaiTin;
-
 use Illuminate\Routing\Controller;
 
 class TinTuc1Controller extends Controller
@@ -26,7 +25,6 @@ class TinTuc1Controller extends Controller
   //POST Thêm
   public function postThem(Request $request)
   {
-
     $validatedData = $request->validate([
       'TieuDe' => 'required|unique:TinTuc,TieuDe|min:3|max:100',
       'NoiDung' => 'required',
@@ -39,8 +37,6 @@ class TinTuc1Controller extends Controller
       'TieuDe.max'=>'Tên tiêu đề không được quá 100 ký tự',
       'NoiDung.require'=>'Bạn chưa nhập nội dung bài viết',
       'TomTat.require'=>'Bạn chưa nhập nội dung bài viết',
-
-    
     ]);
     $tintuc=new TinTuc;
     $tintuc->TieuDe = $request->TieuDe;
@@ -50,6 +46,7 @@ class TinTuc1Controller extends Controller
     $tintuc->NoiDung=$request->NoiDung;
     $tintuc->NoiBat=$request->NoiBat;
     $tintuc->Tag=$request->Tag;
+    $tintuc->HienThi=$request->HienThi;
     $tintuc->NguoiDang=$request->NguoiDang;
     if($request->hasFile('Hinh'))
     {
@@ -73,7 +70,7 @@ class TinTuc1Controller extends Controller
       $tintuc->Hinh="";
     }
     $tintuc->save();
-    return redirect('admin/tintuc/them')->with('thongbao','Thêm Thành Công');
+    return redirect('admin/tintuc/danhsach')->with('thongbao','Thêm Thành Công');
   }
 
   public function getSua($id)
@@ -93,7 +90,10 @@ class TinTuc1Controller extends Controller
     $tintuc->NoiDung=$request->NoiDung;
     $tintuc->NoiBat=$request->NoiBat;
     $tintuc->Tag=$request->Tag;
+    $tintuc->HienThi=$request->HienThi;
     $tintuc->NguoiDang=$request->NguoiDang;
+   
+
 
     if($request->hasFile('Hinh'))
     {

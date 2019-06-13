@@ -9,7 +9,6 @@
                 <li><a href="#">Khách sạn</a></li>
                 <li>/</li>
                 <li><a href="#">Thanh toán</a></li>
-               			
             </ul>				
         </div>
         <a class="backbtn right" href="#"></a>
@@ -77,7 +76,6 @@
                 </div>
                 <div class="clearfix"></div>
                 
-                
                 <br>
                 <br>
                 <span class="size16px bold dark left">Thanh toán khi nhận phòng hoặc thanh toán ngay</span>
@@ -85,8 +83,6 @@
                 <div class="clearfix"></div>
                 <div class="line4"></div>		
             
-                
-                
                 <br>
                 <div class="col-md-4">
                 </div>
@@ -319,6 +315,7 @@
                         </tr>
                         <tr>
                             <td colspan="2"><span class="dark">Loại phòng</span>: {{$khachsan->TenPhong}}</td>
+                            <input type="hidden" name="LoaiPhong" value="{{$khachsan->TenPhong}}">
                         </tr>
                         <tr>
                             <td colspan="2"><span class="dark"> Ngày nhận phòng

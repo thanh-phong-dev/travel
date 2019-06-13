@@ -74,20 +74,20 @@
                                                 <div class="form-group">
                                                         <label>Nổi Bật</label><br/>
                                                         <label class="radio-inline">
-                                                            <input name="NoiBat" value="0" checked="" type="radio">Không
+                                                            <input name="NoiBat" value="0" checked="" type="radio">Ẩn
                                                         </label><br/>
                                                         <label class="radio-inline">
-                                                            <input name="NoiBat" value="1" type="radio">Có
+                                                            <input name="NoiBat" value="1" type="radio">Hiển thị
                                                         </label>
                                                     </div>
 
                                                     <div class="form-group">
                                                             <label>Hiển thị</label><br/>
                                                             <label class="radio-inline">
-                                                                <input name="HienThi" value="1" checked="" type="radio">Có
+                                                                <input name="HienThi" value="1" checked="" type="radio">Hiển thị
                                                             </label><br/>
                                                             <label class="radio-inline">
-                                                                <input name="HienThi" value="0" type="radio">Không
+                                                                <input name="HienThi" value="0" type="radio">Ẩn
                                                             </label>
                                                         </div>
 

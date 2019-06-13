@@ -19,7 +19,7 @@
 
                       <span class="opensans size18">Bạn muốn đi du lịch ở đâu?</span>
                       <div class="">
-                        <form action="timkiemkhachsan" method="POST">
+                        <form action="tim-kiem-khach-san.html" method="POST">
                       <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                       <input type="text" class="form-control" placeholder="Nhập nơi bạn muốn đi" name="tukhoa1"> 
                       <br/>
@@ -36,12 +36,8 @@
                               <input type="date" class="form-control mySelectCalendar" id="" placeholder="mm/dd/yyyy"/>
                           </div>
                       </div>
-                      
                       <div class="clearfix"></div>
-                   
                       <div class="room1 margtop15">
-                          
-
                           <div class="w50percentlast">	
                               <div class="wh90percent textleft right ohidden">
                                   <div class="w50percent">
@@ -72,86 +68,7 @@
                               </div>
                           </div>
                       </div>
-               
-                      <div class="room2 none">
-                          <div class="clearfix"></div><div class="line1"></div>
-                          <div class="w50percent">
-                              <div class="wh90percent textleft">
-                                  <span class="opensans size13"><b>ROOM 2</b></span><br/>
-                                  <div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> | <a href="#" onclick="removeroom2()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
-                              </div>
-                          </div>
-
-                          <div class="w50percentlast">	
-                              <div class="wh90percent textleft right">
-                                  <div class="w50percent">
-                                      <div class="wh90percent textleft left">
-                                          <span class="opensans size13"><b>Adult</b></span>
-                                          <select class="form-control mySelectBoxClass">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option selected>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                          </select>
-                                      </div>
-                                  </div>							
-                                  <div class="w50percentlast">
-                                      <div class="wh90percent textleft right">
-                                      <span class="opensans size13"><b>Child</b></span>
-                                          <select class="form-control mySelectBoxClass">
-                                            <option selected>0</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>		
-
-                      <div class="room3 none">
-                          <div class="clearfix"></div><div class="line1"></div>
-                          <div class="w50percent">
-                              <div class="wh90percent textleft">
-                                  <span class="opensans size13"><b>ROOM 3</b></span><br/>
-                                  <div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ Add room</a> | <a href="#" onclick="removeroom3()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
-                              </div>
-                          </div>
-
-                          <div class="w50percentlast">	
-                              <div class="wh90percent textleft right">
-                                  <div class="w50percent">
-                                      <div class="wh90percent textleft left">
-                                          <span class="opensans size13"><b>Adult</b></span>
-                                          <select class="form-control mySelectBoxClass">
-                                            <option selected>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                          </select>
-                                      </div>
-                                  </div>							
-                                  <div class="w50percentlast">
-                                      <div class="wh90percent textleft right">
-                                      <span class="opensans size13"><b>Child</b></span>
-                                          <select class="form-control mySelectBoxClass">
-                                            <option selected>0</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>	
+               	
 
                   
                   </div>
@@ -239,17 +156,8 @@
                       </div>
                       
                       <div class="clearfix"></div>
-                      
-                     
-                  
                   </div>
-                  <!--End of 3rd tab -->
-                  
-                 
-                  <!--End of 4th tab -->
               </div>
-              
-
                           <button type="submit" class="btn-search">Tìm kiếm</button>
                       </form>
                   </div>
@@ -384,26 +292,14 @@
   </div>
   
   <div class="lastminute3">
-      {{-- <div class="container">	
-          <img src="images/rating-4.png" alt=""/><br/>
-          LAST MINUTE: <b>Barcelona</b> - 2 nights - Flight+4* Hotel, Dep 27h Aug from $209/person<br/>
-          <form action="http://titanicthemes.com/travel/blue/details.html">
-              <button class="btn iosbtn" type="submit">Read more</button>
-          </form>
-      </div> --}}
   </div>	
-  
   <div class="container cstyle06">	
-
-   
       <div class="row anim2">
         <div class="col-md-3">
           <h2>Top những nơi được yêu thích<br/></h2><br/>
           Những nơi được yêu thích nhất năm 2019
         </div>
         <div class="col-md-9">
-        
-        
         
           <!-- Carousel -->
           <div class="wrapper">

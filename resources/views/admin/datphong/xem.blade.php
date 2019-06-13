@@ -22,24 +22,33 @@
                                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <thead>
                                             <tr>
-                                                <th>STT</th>
-                                                <th>Tên Khách Sạn</th>
-                                               
-                                              
+                                                <th>Tên người đặt</th>
+                                                <th>Loại Phòng</th>
+                                                <th>Trạng thái</th>
+                                                <th>Cập nhật</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <?php $i=0; ?>
-                                                @foreach($datphong1 as $tt1)
-                                            <tr>
-                                               
-                                                <td> <?php echo $i; ?></td>
-                                                <td>{{$tt1->NgayDat}}</td>
-                                               
-
+                                                <tr>
+                                                <th>{{$datphong->HoTen}}</th>
+                                                <td>{{$datphong->LoaiPhong}}</td>
+                                                <td>@if($datphong->TinhTrang==0)
+                                                    <p style="
+                                                    color: red;
+                                                      ">  {{"Đang chờ kiểm tra"}}</p>
+                                                @else
+                                                <p style="
+                                                color: green;
+                                                ">   {{"Đã xác nhận"}}</p>
+                                             
+                                                @endif
+                                                </td>
+                                                <td class="center"><i class="mdi mdi-table-edit"></i> <a href="admin/datphong/sua/{{$datphong->id}}" style="
+                                                    color: blue;">Cập nhật </td>
                                             </tr>
                                             <?php $i++; ?>
-                                            @endforeach
+                                           
                                         </tbody>
                                     </table>
                                 </div>

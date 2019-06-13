@@ -39,6 +39,8 @@ class PageController extends Controller
         $tintucslide=TinTuc::orderBy('id', 'DESC')->take(10)->get();
         $danhsachloaitin=LoaiTin::orderBy('id', 'DESC')->take(5)->get();
         $gioithieu=GioiThieu::all();
+        $khachsan=KhachSan::orderBy('SoLuotXem', 'DESC')->take(9)->get();
+        $tintuc=TinTuc::all();
         view()->share('gioithieu',$gioithieu);
         view()->share('tinnoibat', $tinnoibat);
         view()->share('danhmucanuong', $danhmucanuong);
@@ -49,9 +51,7 @@ class PageController extends Controller
         view()->share('quangcao', $quangcao);
         view()->share('user', $user);
         view()->share('tintucslide', $tintucslide);
-        $khachsan=KhachSan::orderBy('SoLuotXem', 'DESC')->take(9)->get();
         view()->share('khachsan', $khachsan);
-        $tintuc=TinTuc::all();
         view()->share('tintuc', $tintuc);
         if (Auth::check()) {
             view()->share('nguoidung', Auth::user());
@@ -68,9 +68,9 @@ class PageController extends Controller
     }
     public function tintuc(Request $request)
     {
-        $khachsan=KhachSan::orderBy('id', 'DESC')->take(4)->get();
+        $khachsan=KhachSan::orderBy('id', 'DESC')->where('HienThi',1)->where('NoiBat',1)->take(4)->get();
         $loaitin=LoaiTin::orderBy('id', 'DESC')->take(6)->get();
-        $tintuc=TinTuc::orderBy('id', 'DESC')->paginate(3);
+        $tintuc=TinTuc::orderBy('id', 'DESC')->where('HienThi',1)->paginate(3);
         return view('page.tintuc', ['loaitin'=>$loaitin,'tintuc'=>$tintuc,'khachsan'=>$khachsan]);
     }
     public function ajax()
@@ -82,8 +82,9 @@ class PageController extends Controller
 
     public function khachsan()
     {
-        $khachsan=KhachSan::orderBy('id', 'DESC')->paginate(10);
-        return view('page.khachsan1', ['khachsan'=>$khachsan]);
+        $khachsan=KhachSan::orderBy('id', 'DESC')->where('HienThi',1)->paginate(8);
+        $tatcakhachsan=KhachSan::where('HienThi',1)->get();
+        return view('page.khachsan1', ['khachsan'=>$khachsan, 'tatcakhachsan'=>$tatcakhachsan]);
     } 
 
     public function chitietkhachsan($id)
@@ -185,9 +186,8 @@ class PageController extends Controller
        [
       'email' => 'required|unique:users,email|min:3|max:100|email',
       'sdt'=>'min:9|max:11|numeric',
-      
-  ],
-       [
+        ],
+        [
     'email.required'=>'Bạn chưa nhập tên',
     'email.unique'=>'Email đã tồn tại',
     'email.min'=>'Email phải có độ dài từ 3 đến 100 ký tự',
@@ -197,14 +197,11 @@ class PageController extends Controller
     'sdt.min'=>'Số điện thoại không đúng',
     'sdt.max'=>'Số điện thoại không đúng',
     'sdt.numeric'=>'Số điện thoại phải là số',
-
-   
   ]
    );
         $user =new User;
         $user->name= $request->name;
         $user->lastname= $request->lastname;
-
         $user->email=$request->email;
         $user->password=bcrypt($request->password);
         $user->quyen=0;
@@ -221,14 +218,14 @@ class PageController extends Controller
     public function timkiem(Request $request)
     {
         $tukhoa =$request->tukhoa;
-        $tintuc =TinTuc::where('TieuDe', 'like', "%$tukhoa%")->take(10)->paginate(10);
+        $tintuc =TinTuc::where('TieuDe', 'like', "%$tukhoa%")->paginate(10);
         return view('page.timkiem', ['tintuc'=>$tintuc,'tukhoa'=>$tukhoa]);
     }
  
     public function timkiemkhachsan(Request $request)
     {
         $tukhoa1=$request->tukhoa1;
-        $khachsan=KhachSan::where('DiaChi', 'like', "%$tukhoa1%")->take(10)->paginate(10);
+        $khachsan=KhachSan::where('DiaChi','like', "%$tukhoa1%")->get();
         return view('page.timkiemkhachsan', ['khachsan'=>$khachsan,'tukhoa1'=>$tukhoa1]);
     }
 
@@ -255,13 +252,13 @@ class PageController extends Controller
 
     public function postthanhtoan($id, Request $request)
     {
-        
         $phongkhachsan=PhongKhachSan::find($id);
         $datphong= new DatPhong();
         $datphong->Idkhachsan=$phongkhachsan->idkhachsan;
         $datphong->NgayDat = $request->NgayDat;
         $datphong->NgayTra = $request->NgayTra;
         $datphong->SoNgayO = $request->SoNgayO;
+        $datphong->LoaiPhong = $request->LoaiPhong;
         $datphong->ThanhTien = $request->TongTien;
         $datphong->HoTen = $request->HoTen;
         $datphong->SoDienThoai = $request->SoDienThoai;

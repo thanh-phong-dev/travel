@@ -67,7 +67,7 @@
                                                     @endif
                                                     </td>
                                                 <?php
-                                                $thoigian=$tt->NgaySua; 
+                                                $thoigian=$tt->updated_at; 
                                                 $dateM=date("d-m-Y",strtotime($thoigian)); ?>
                                                 <td ><?php echo $dateM;?></td>    
                                                 <?php $i++; ?>

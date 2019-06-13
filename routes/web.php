@@ -186,7 +186,7 @@
 
     Route::post('timkiem','PageController@timkiem');
 
-    Route::post('timkiemkhachsan','PageController@timkiemkhachsan');
+    Route::post('tim-kiem-khach-san.html','PageController@timkiemkhachsan');
 
     Route::get('thanh-toan/{id}/{TenKhongDau}.html','PageController@thanhtoan');
 
