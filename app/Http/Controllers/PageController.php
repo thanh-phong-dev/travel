@@ -219,7 +219,8 @@ class PageController extends Controller
     {
         $tukhoa =$request->tukhoa;
         $tintuc =TinTuc::where('TieuDe', 'like', "%$tukhoa%")->paginate(10);
-        return view('page.timkiem', ['tintuc'=>$tintuc,'tukhoa'=>$tukhoa]);
+        $khachsannoibat=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(6)->get();
+        return view('page.timkiem', ['tintuc'=>$tintuc,'tukhoa'=>$tukhoa,'khachsannoibat'=>$khachsannoibat]);
     }
  
     public function timkiemkhachsan(Request $request)

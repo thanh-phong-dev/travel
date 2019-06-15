@@ -17,7 +17,6 @@
             </div>
         </div>
         <!-- End of column 1-->
-        
         <div class="col-md-3">
             <span class="ftitle">Dịch vụ</span>
             <br/><br/>
@@ -29,7 +28,6 @@
             </ul>
         </div>
         <!-- End of column 2-->		
-        
         <div class="col-md-3">
             <span class="ftitle">Về Travel </span>
             <br/><br/>

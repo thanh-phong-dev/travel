@@ -14,7 +14,7 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="trang-chu.html">Trang chủ</a>
+                <a href="trang-chu.html">Trang chủ</a>
                 </li>
                 <li><a href="tin-tuc.html">Tin tức</a></li>
                 <li><a href="khach-san.html">Khách sạn</a></li>
@@ -35,3 +35,4 @@
       </div>
     </div>
   </div>
+</div>
