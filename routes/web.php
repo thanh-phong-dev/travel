@@ -192,7 +192,6 @@
 
     Route::post('thanh-toan/{id}/{TenKhongDau}.html','PageController@postthanhtoan');
 
-
     Route::get('/ajax/loaitin','PageController@ajax');
 
     Route::get('khach-san.html','PageController@khachsan');
@@ -205,6 +204,9 @@
 
     Route::get('chi-tiet/{id}/{TieuDeKhongDau}.html','PageController@chitietdiendan');
 
+    Route::get('dien-dan-cau-hoi.html','PageController@cauhoi');
+
+    Route::post('dien-dan-cau-hoi.html','PageController@postcauhoi');
     //  
     Route::get('test','PageController@test');
 

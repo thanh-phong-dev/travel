@@ -31,14 +31,14 @@
                   <div class="abbg">
                      <a href="upload/tintuc/{{$tintuc->Hinh}}" class="blogpost-hover" data-footer="A custom footer text" data-title="A random title" data-gallery="multiimages" data-toggle="lightbox"><span class="glyphicon glyphicon-zoom-in"></span></a>
                   </div>
-                  <img src="upload/tintuc/{{$tintuc->Hinh}}" class="fwimg" alt=""/>
+                  <img src="upload/tintuc/{{$tintuc->Hinh}}" class="fwimg" alt="{{$tintuc->TieuDe}}"/>
                </div>
                <br/>
                <span class="lato size22 dark bold">{{$tintuc->TieuDe}}</span><br/>
                <?php
                   $thoigian=$tintuc->created_at; 
                   $dateM=date("d-m-Y",strtotime($thoigian)); ?> 
-               <span class="grey">{{$dateM}}<a href="#"></a> <a href="#"></a> Đăng bởi {{$tintuc->NguoiDang}} <a href="#"></a>, <span><i class="far fa-eye"></i> {{$tintuc->SoLuotXem}}</span>   </span>
+               <span class="grey">{{$dateM}} Đăng bởi {{$tintuc->NguoiDang}} <a href="#"></a>, <span><i class="far fa-eye"></i> {{$tintuc->SoLuotXem}}</span>   </span>
                <?php $i=count($tintuc->comment)?>
                <i class="far fa-comments"> {{$i}}</i>
                <br>
@@ -126,7 +126,7 @@
                   <span class="lato size18 dark bold">Địa điểm được yêu thích</span><br/>
                   <ul class="blogcat">
                      @foreach($loaitin as $lt)
-                     <li><a href="#">{{$lt->Ten}}</a> <span class="badge indent0"></span></li>
+                     <li><a href="dia-diem/{{$lt->id}}/{{$lt->TenKhongDau}}.html">{{$lt->Ten}}</a> <span class="badge indent0"></span></li>
                      @endforeach
                   </ul>
                   <br/>
@@ -142,7 +142,7 @@
                            height: 78px;
                            width: 117px;
                            "></a>
-                        <a class="dark" href="#"><b>{{$ks->Ten}}</b></a><br>
+                        <a class="dark" href="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html"><b>{{$ks->Ten}}</b></a><br>
                         <?php 
                            $num = $ks->Gia;  
                            $formattedNum = number_format($num);?>

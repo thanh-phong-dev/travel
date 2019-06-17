@@ -5,15 +5,16 @@
 <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
 	<title>Du lịch Việt Nam</title>
     <base href="{{asset('')}}">
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name='revisit-after' content='1 days' />
+    <meta http-equiv="content-language" content="vi" />
     <!-- Bootstrap -->
     <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="assets/css/custom.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="plugins/jslider/css/jslider.css" type="text/css">
     <link rel="stylesheet" href="plugins/jslider/css/jslider.round.css" type="text/css">	
-    	
     <!-- Carousel -->
 	<link href="examples/carousel/carousel.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -5,11 +5,7 @@
       <div class="col-md-4">
          <div class="bs-example bs-example-tabs cstyle04">
             <ul class="nav nav-tabs" id="myTab">
-               {{-- 
-               <li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#air"><span class="hotel"></span> Khách sạn</a></li>
-               --}}
                <li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#hotel"><span class="hotel"></span>Khách sạn</a></li>
-               <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#car"><span class="car"></span>Xe</a></li>
             </ul>
             <div class="tab-content3" id="myTabContent">
                <!--End of 1st tab -->
@@ -202,77 +198,6 @@
             </div>
          </div>
          @endforeach
-         <!-- End of first row-->
-         {{-- 
-         <div class="col-md-4">
-            <span class="dtitle">Early Booking</span>			
-            <div class="deal">
-               <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
-               <div class="dealtitle">
-                  <p><a href="details.html" class="dark">Comfort Suites Paradise Island</a></p>
-                  <img src="images/smallrating-4.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Bahamas</span>
-               </div>
-               <div class="dealprice">
-                  <p class="size12 grey lh2">from<span class="price">$29</span><br/>per night</p>
-               </div>
-            </div>
-            <div class="deal">
-               <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
-               <div class="dealtitle">
-                  <p><a href="details.html" class="dark">Barcelo Malaga</a></p>
-                  <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Spain</span>
-               </div>
-               <div class="dealprice">
-                  <p class="size12 grey lh2">from<span class="price">$32</span><br/>per night</p>
-               </div>
-            </div>
-            <div class="deal">
-               <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
-               <div class="dealtitle">
-                  <p><a href="details.html" class="dark">Palatino Hotel</a></p>
-                  <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
-               </div>
-               <div class="dealprice">
-                  <p class="size12 grey lh2">from<span class="price">$90</span><br/>per night</p>
-               </div>
-            </div>
-         </div>
-         <!-- End of first row-->
-         <div class="col-md-4">
-            <span class="dtitle">Hot Deals</span>			
-            <div class="deal">
-               <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
-               <div class="dealtitle">
-                  <p><a href="details.html" class="dark">Parayso Hotel And Spa</a></p>
-                  <img src="images/smallrating-4.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
-               </div>
-               <div class="dealprice">
-                  <p class="size12 grey lh2">from<span class="price">$49</span><br/>per night</p>
-               </div>
-            </div>
-            <div class="deal">
-               <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
-               <div class="dealtitle">
-                  <p><a href="details.html" class="dark">Village Inn Studios & Family Apartments</a></p>
-                  <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
-               </div>
-               <div class="dealprice">
-                  <p class="size12 grey lh2">from<span class="price">$79</span><br/>per night</p>
-               </div>
-            </div>
-            <div class="deal">
-               <a href="details.html"><img src="images/thumb-img.jpg" alt="" class="dealthumb"/></a>
-               <div class="dealtitle">
-                  <p><a href="details.html" class="dark">Diana Hotel</a></p>
-                  <img src="images/smallrating-3.png" alt="" class="mt-10"/><span class="size13 grey mt-9">Zakynthos</span>
-               </div>
-               <div class="dealprice">
-                  <p class="size12 grey lh2">from<span class="price">$299</span><br/>per night</p>
-               </div>
-            </div>
-         </div>
-         --}}
-         <!-- End of first row-->			
       </div>
    </div>
 </div>
@@ -298,7 +223,9 @@
                         "  alt="{{$lt->Ten}}"/></a>
                      <div class="m1">
                         <h6 class="lh1 dark"><b>Tham quan {{$lt->Ten}}</b></h6>
-                        <h6 class="lh1 green">Thanh toán khi nhận phòng</h6>
+                        <h6 style="
+                        color: green;
+                    ">Thanh toán khi nhận phòng</h6>
                      </div>
                   </li>
                   @endforeach
@@ -329,7 +256,9 @@
                         " /></a>
                      <div class="m1">
                         <h6 class="lh1 dark"><b>{{$tt->TieuDe}}</b></h6>
-                        <h6 class="lh1 green">Save up to 30%</h6>
+                        <h6 style="
+                        color: green;
+                    ">Save up to 30%</h6>
                      </div>
                   </li>
                   @endforeach

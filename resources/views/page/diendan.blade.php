@@ -32,7 +32,7 @@
                <p class="lato size30 slim" style="
                margin-left: 22px;
               ">Diễn đàn du lịch Việt</p> 
-              <button class="btn btn-warning">Đăng câu hỏi</button>
+              <button class="btn btn-warning" onclick="location.href='dien-dan-cau-hoi.html'">Đăng câu hỏi</button>
                @endif
                <p class=""></p>
             </div>

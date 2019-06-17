@@ -66,6 +66,7 @@ class PageController extends Controller
     {
         return view('page.gioithieu');
     }
+
     public function tintuc(Request $request)
     {
         $khachsan=KhachSan::orderBy('id', 'DESC')->where('HienThi',1)->where('NoiBat',1)->take(4)->get();
@@ -73,6 +74,7 @@ class PageController extends Controller
         $tintuc=TinTuc::orderBy('id', 'DESC')->where('HienThi',1)->paginate(3);
         return view('page.tintuc', ['loaitin'=>$loaitin,'tintuc'=>$tintuc,'khachsan'=>$khachsan]);
     }
+
     public function ajax()
     {
         $loaitin=LoaiTin::orderBy('id', 'DESC')->take(6)->get();
@@ -112,7 +114,6 @@ class PageController extends Controller
         $khachsan=KhachSan::where('idDiaDiem', $id)->get();
         return view('page.diadiemdulich', ['khachsan'=>$khachsan,'loaitin'=>$loaitin]);
     }
-
 
     public function chitiettintuc($id)
     {
@@ -267,5 +268,10 @@ class PageController extends Controller
         $datphong->TinhTrang =0;
         $datphong->save();
         return redirect("trang-chu.html")->with('thongbao', 'thành công');
+    }
+
+    public function cauhoi()
+    {
+        return view('page.cauhoi');
     }
 }

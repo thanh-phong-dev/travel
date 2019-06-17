@@ -29,7 +29,6 @@
                                                 <th>Địa Chỉ</th>
                                                 <th>Hình</th>
                                                 <th>Xem</th>
-
                                                 <th>Hoạt động</th>
                                                 <th>Thao tác</th>
                                             </tr>
@@ -45,7 +44,6 @@
                                                 $formattedNum = number_format($num);?>
                                                 <td>{{ $formattedNum}} <sup>đ</sup></td>
                                                 <td>{{$tt->Sao}} Sao</td>
-
                                                 <td>{{$tt->DiaChi}}</td>
                                                 <td><img src="upload/khachsan/{{$tt->Hinh}}" width="100px" height="70px" alt=""></td>
                                                 <td class="center"><i class="mdi mdi-eye"></i> <a href="admin/khachsan/xem/{{$tt->id}}">Xem</a></td>

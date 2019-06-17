@@ -5,6 +5,9 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Du lịch Việt Nam</title>
+      <meta name="robots" content="noodp,index,follow" />
+      <meta name='revisit-after' content='1 days' />
+      <meta http-equiv="content-language" content="vi" />
       <base href="{{asset('')}}">
       <!-- Bootstrap -->
       <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">

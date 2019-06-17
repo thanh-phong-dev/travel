@@ -41,7 +41,6 @@
                                                <td>{{$tt->Email}}</td>
                                                <td  style="white-space: normal;">{{$tt->DiaChi}}</td>
                                                <td>{{$tt->LinkFb}}</td>
-
                                                <td class="center"><i class="mdi mdi-table-edit"></i> <a href="admin/header/sua/{{$tt->id}}" style="
                                                 color: blue;">Cập nhật</a></td>
                                                 <?php $i++; ?>
