@@ -38,30 +38,64 @@
                      ?>
                   <span class="grey">Đăng lúc: {{$diendan->created_at}}/ {{$demcomment}} bình luận / Đăng bởi <a href="#"> </a>{{$diendan->NguoiDang}}</span><br>
                   <div class="line4"></div>
-                  <span class="size14 dark bold">Bình luận</span>
-                  <div class="line4"></div>
-                  <form action="binhluan/{{$diendan->id}}" method="POST">
-                     <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                     <textarea name="NoiDung" class="form-control" rows="3"></textarea><br>
-                     <button  type="submit" class="btn-search5">Bình luận <span class="glyphicon glyphicon-arrow-down"></span></button>
-                  </form>
-                  <br><br><br>
-                  <span class="size14 dark bold">{{$demcomment}} Bình luận</span>
-                  <div class="line4"></div>
-                  @foreach($diendan->comment as $cm)
-                  <div class="wh20percent left textleft">
-                     <div class="circlewrap2"><img alt="" class="circleimg" src="images/user-avatar.jpg"></div>
-                  </div>
-                  {{$cm->NoiDung}}
-                  <div class="wh80percent right">
-                     <a href="#" class="lblue bold"></a><br>
-                     <br><span class="grey size12"> {{$cm->created_at}}  <a href="#" class="grey"></a></span>
-                  </div>
-                  <br>
-                  {{$cm->user->name}}
-                  <div class="clearfix"></div>
-                  <div class="line4"></div>
-                  @endforeach
+                  {{--  test--}}
+                  <div class="container">
+                        <h2>Bình luận bài viết</h2>
+                        <br>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home">Bình luận</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1">Bình luận từ FaceBook</a>
+                          </li>
+                        </ul>
+                      
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                          <div id="home" class="container tab-pane active"><br>
+                            <h3>Bình luận</h3>
+                            @if(Auth::User() == null)
+                            <span class="size14 dark bold">Bình Luận<span> (vui lòng đăng nhập để bình luận)</span></span>
+                            <br><br>
+                            <a href="dang-nhap.html"><button class="btn btn-primary">Đăng nhập</button> </a>
+                            @else
+                            
+                            <div class="line4"></div>
+                            <form action="binhluan/{{$diendan->id}}" method="POST">
+                               <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                               <textarea name="NoiDung" class="form-control" rows="3"></textarea><br>
+                               <button  type="submit" class="btn btn-primary">Đăng<span ></span></button>
+                            </form>
+                            <br><br><br>
+                            <span class="size14 dark bold">{{$demcomment}} Bình luận</span>
+                            <div class="line4"></div>
+                            @foreach($diendan->comment as $cm)
+                            <div class="wh20percent left textleft">
+                               <div class="circlewrap2"><img alt="" class="circleimg" src="images/user-avatar.jpg"></div>
+                            </div>
+                       
+                            <div class="wh80percent right">
+                               <a href="#" class="lblue bold"> {{$cm->user->name}}</a>   <br>
+                               {{$cm->NoiDung}}
+                               <br><span class="grey size12"> {{$cm->created_at}}  <a href="#" class="grey"></a></span>
+                            </div>
+                            <br>
+                         
+                            <div class="clearfix"></div>
+                            <div class="line4"></div>
+                            @endforeach
+                            @endif
+                          </div>
+                          <div id="menu1" class="container tab-pane fade"><br>
+                           <h3>Bình luận</h3>
+                           <div class="fb-comments" data-href="https://www.facebook.com/ITthanhphong/{{$diendan->id}}" data-numposts="5"></div>
+                          </div>
+                        </div>
+                      </div>
+                  {{-- endtest --}}
+                  
                   <br>
                   <br>
                </div>

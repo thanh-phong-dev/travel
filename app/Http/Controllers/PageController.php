@@ -239,7 +239,7 @@ class PageController extends Controller
 
     public function diendan()
     {
-        $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(4)->get();
+        $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(8)->get();
         $diendan=DienDan::paginate(10);
         return view('page.diendan',['diendan'=>$diendan,'khachsan'=>$khachsan]);
     }

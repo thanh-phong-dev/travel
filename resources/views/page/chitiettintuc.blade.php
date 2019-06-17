@@ -59,7 +59,7 @@
                <br/><br/>
                {{-- test --}}
                <div class="container">
-                  <h2>Toggleable Tabs</h2>
+                  <h2>Bình luận về bài viêt</h2>
                   <br>
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
@@ -75,7 +75,8 @@
                      <div id="home" class="container tab-pane active">
                         <br>
                         @if(Auth::User() == null)
-                        <span class="size14 dark bold">Bình Luận<span> (đăng nhập để bình luận) ----></span></span>
+                        <span class="size14 dark bold">Bình Luận<span> (đăng nhập để bình luận)</span></span>
+                        <br>
                         <a href="dang-nhap.html"><button class="btn btn-primary">Đăng nhập</button> </a>
                         @else
                         <?php $i=count($tintuc->comment)?>

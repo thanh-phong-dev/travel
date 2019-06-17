@@ -69,7 +69,7 @@
             <!-- END OF BOOK FILTERS -->	
             <div class="line2"></div>
             <div class="padding20title">
-               <h3 class="opensans dark">Filter by</h3>
+               <h3 class="opensans dark">Lọc theo</h3>
             </div>
             <div class="line2"></div>
             <!-- Star ratings -->	
@@ -80,27 +80,27 @@
                <div class="hpadding20">
                   <div class="checkbox">
                      <label>
-                     <input type="checkbox"><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 Stars
+                     <input type="checkbox"><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 sao
                      </label>
                   </div>
                   <div class="checkbox">
                      <label>
-                     <input type="checkbox"><img src="images/filter-rating-4.png" class="imgpos1" alt=""/> 4 Stars
+                     <input type="checkbox"><img src="images/filter-rating-4.png" class="imgpos1" alt=""/> 4 sao
                      </label>
                   </div>
                   <div class="checkbox">
                      <label>
-                     <input type="checkbox"><img src="images/filter-rating-3.png" class="imgpos1" alt=""/> 3 Stars
+                     <input type="checkbox"><img src="images/filter-rating-3.png" class="imgpos1" alt=""/> 3 sao
                      </label>
                   </div>
                   <div class="checkbox">
                      <label>
-                     <input type="checkbox"><img src="images/filter-rating-2.png" class="imgpos1" alt=""/> 2 Stars
+                     <input type="checkbox"><img src="images/filter-rating-2.png" class="imgpos1" alt=""/> 2 sao
                      </label>
                   </div>
                   <div class="checkbox">
                      <label>
-                     <input type="checkbox"><img src="images/filter-rating-1.png" class="imgpos1" alt=""/> 1 Star
+                     <input type="checkbox"><img src="images/filter-rating-1.png" class="imgpos1" alt=""/> 1 sao
                      </label>
                   </div>
                </div>
@@ -129,10 +129,11 @@
                <!-- Top filters -->
                <div class="topsortby">
                   <div class="col-md-4 offset-0">
-                     <div class="left mt7"><b>Sort by:</b></div>
+                    
+                     <div class="left mt7"><b>Sắp xếp :</b></div>
                      <div class="right wh70percent">
-                        <select class="form-control mySelectBoxClass ">
-                           <option selected>Guest rating</option>
+                        <select class="form-control">
+                           <option selected>Theo sao</option>
                            <option>5 stars</option>
                            <option>4 stars</option>
                            <option>3 stars</option>
@@ -141,34 +142,7 @@
                         </select>
                      </div>
                   </div>
-                  <div class="col-md-4">
-                     <div class="w50percent">
-                        <div class="wh90percent">
-                           <select class="form-control mySelectBoxClass ">
-                              <option selected>Name</option>
-                              <option>A to Z</option>
-                              <option>Z to A</option>
-                           </select>
-                        </div>
-                     </div>
-                     <div class="w50percentlast">
-                        <div class="wh90percent">
-                           <select class="form-control mySelectBoxClass ">
-                              <option selected>Price</option>
-                              <option>Ascending</option>
-                              <option>Descending</option>
-                           </select>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-4 offset-0">
-                     <button class="popularbtn left">Most Popular</button>
-                     <div class="right">
-                        <button class="gridbtn" onClick="window.open('list2.html','_self');">&nbsp;</button>
-                        <button class="listbtn active">&nbsp;</button>
-                        <button class="grid2btn" onClick="window.open('list3.html','_self');">&nbsp;</button>
-                     </div>
-                  </div>
+                
                </div>
                <!-- End of topfilters-->
             </div>

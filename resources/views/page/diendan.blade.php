@@ -21,8 +21,20 @@
          <!-- CONTENT -->
          <div class="col-md-12 pagecontainer2 offset-0">
             <div class="hpadding50c">
-               <p class="lato size30 slim">Diễn đàn</p>
-               <p class="aboutarrow"></p>
+               @if(Auth::User() == null)
+               <p class="lato size30 slim" style="
+               margin-left: 1px;
+              ">Diễn đàn du lịch Việt</p>  
+                <button class="btn btn-info" onclick="location.href='dang-nhap.html'">Đăng nhập</button> 
+                <button class="btn btn-danger" onclick="location.href='dang-ki-user.html'">Đăng ký</button>
+               
+               @else
+               <p class="lato size30 slim" style="
+               margin-left: 22px;
+              ">Diễn đàn du lịch Việt</p> 
+              <button class="btn btn-warning">Đăng câu hỏi</button>
+               @endif
+               <p class=""></p>
             </div>
             <div class="line3"></div>
             <div class="hpadding50c">
@@ -100,15 +112,15 @@
                            $formattedNum = number_format($num);?>
                         <span class="opensans green bold size14">{{$formattedNum}} <sup></sup></span> <span class="grey">đ/đêm</span><br>
                         @if($ks->Sao==1)
-                        <img src="upload/sao/1.png" alt="" class="mt-10"/>
+                        <img src="upload/sao/1.png" alt="" />
                         @elseif($ks->Sao==2)
-                        <img src="upload/sao/2.png" alt="" class="mt-10"/>
+                        <img src="upload/sao/2.png" alt="" />
                         @elseif($ks->Sao==3)
-                        <img src="upload/sao/3.png" alt="" class="mt-10"/>
+                        <img src="upload/sao/3.png" alt="" />
                         @elseif($ks->Sao==4)
-                        <img src="upload/sao/4.png" alt="" class="mt-10"/>
+                        <img src="upload/sao/4.png" alt="" />
                         @elseif($ks->Sao==5)
-                        <img src="upload/sao/5.png" alt="" class="mt-10"/>
+                        <img src="upload/sao/5.png" alt="" />
                         @endif
                         <div class="line4"></div>
                         @endforeach

@@ -32,14 +32,14 @@
                   <div class="abbg">
                      <a href="upload/tintuc/{{$tt->Hinh}}" class="blogpost-hover" data-footer="A custom footer text" data-title="A random title" data-gallery="multiimages" data-toggle="lightbox"><span class="glyphicon glyphicon-zoom-in"></span></a>
                   </div>
-                  <img src="upload/tintuc/{{$tt->Hinh}}" class="fwimg" alt=""/>
+                  <img src="upload/tintuc/{{$tt->Hinh}}" class="fwimg" alt="{{$tt->TieuDe}}"/>
                </div>
                <br/>
                <a href="chi-tiet-tin-tuc/{{$tt->id}}/{{$tt->TieuDeKhongDau}}.html"><span class="lato size22 dark bold">{{$tt->TieuDe}}</span></a><br/>
                <?php
                   $thoigian=$tt->created_at; 
                   $dateM=date("d-m-Y",strtotime($thoigian)); ?>    
-               <span class="grey">{{$dateM}}<a href="#"></a> <a href="#"></a>/Đăng bởi <a href="#">{{$tt->NguoiDang}}</a></span><br/>
+               <span class="grey">{{$dateM}}/Đăng bởi {{$tt->NguoiDang}}</span><br/>
                <div class="line4 
                   des" data-maxlength="250">
                   <p> {!!$tt->TomTat!!}</p>
