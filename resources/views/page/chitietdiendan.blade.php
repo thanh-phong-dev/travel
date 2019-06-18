@@ -36,7 +36,7 @@
                      $data= $diendan->comment;
                      $demcomment=count($data);
                      ?>
-                  <span class="grey">Đăng lúc: {{$diendan->created_at}}/ {{$demcomment}} bình luận / Đăng bởi <a href="#"> </a>{{$diendan->NguoiDang}}</span><br>
+                  <span class="grey">Đăng lúc: {{$diendan->created_at}}/ {{$demcomment}} bình luận / Lượt xem {{$diendan->LuotXem}} / Đăng bởi<a href="#"> </a>{{$diendan->NguoiDang}}</span><br>
                   <div class="line4"></div>
                   {{--  test--}}
                   <div class="container">

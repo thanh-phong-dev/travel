@@ -2,11 +2,13 @@
 @section('content')
 <div class="container breadcrub">
    <div>
-      <a class="homebtn left" href="#"></a>
+      <a class="homebtn left" href="trang-chu.html"></a>
       <div class="left">
          <ul class="bcrumbs">
             <li>/</li>
-            <li><a href="#" class="active">{{$tintuc->loaitin->Ten}}</a></li>
+            <li>Tin tức</li>
+            <li>/</li>
+            <li>{{$tintuc->TieuDe}}</li>
          </ul>
       </div>
       <a class="backbtn right" href="#"></a>
@@ -20,7 +22,7 @@
       <!-- CONTENT -->
       <div class="col-md-12 pagecontainer2 offset-0">
          <div class="hpadding50c">
-            <p class="lato size30 slim">{{$tintuc->TieuDe}}</p>
+            <h1 class="lato slim">{{$tintuc->TieuDe}}</h1>
             <p class="aboutarrow"></p>
          </div>
          <div class="line3"></div>

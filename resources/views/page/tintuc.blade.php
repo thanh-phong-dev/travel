@@ -117,7 +117,7 @@
                            $num = $ks->Gia;  
                            $formattedNum = number_format($num);?>
                         <span class="opensans green bold size14">{{$formattedNum}} <sup>đ</sup></span> <span class="grey">/đêm</span><br>
-                        @if($ks->Sao==1)
+                  @if($ks->Sao==1)
 			                <img src="upload/sao/1.png" alt="" class=""/>
 						@elseif($ks->Sao==2)
 							<img src="upload/sao/2.png" alt="" class=""/>

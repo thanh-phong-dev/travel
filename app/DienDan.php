@@ -8,7 +8,6 @@ class DienDan extends Model
 {
     //
       protected $table ="diendan";
-
    
       public function comment()
       {

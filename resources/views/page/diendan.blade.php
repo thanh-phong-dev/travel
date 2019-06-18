@@ -49,7 +49,8 @@
                      $data= $dd->comment;
                      $demcomment=count($data);
                      ?>
-                  <span class="grey">{{$dd->created_at}}<a href="#"> {{$demcomment}} bình luận</a> <a href="#"></a>/ đăng bởi <a href="#">{{$dd->NguoiDang}}</a></span><br>
+                     
+                  <span class="grey">{{$dd->created_at}} {{$demcomment}} bình luận / lượt xem {{$dd->LuotXem}}/ Đăng bởi {{$dd->NguoiDang}}</span><br>
                   <div class="line4"></div>
                   @endforeach
                   <script>

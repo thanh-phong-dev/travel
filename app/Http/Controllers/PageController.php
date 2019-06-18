@@ -18,6 +18,7 @@ use App\PhongKhachSan;
 use App\DatPhong;
 use App\DienDan;
 use App\GioiThieu;
+
 use App\ChiTietDienDan;
 
 use Carbon\Carbon;
@@ -198,7 +199,7 @@ class PageController extends Controller
     'sdt.min'=>'Số điện thoại không đúng',
     'sdt.max'=>'Số điện thoại không đúng',
     'sdt.numeric'=>'Số điện thoại phải là số',
-  ]
+        ]
    );
         $user =new User;
         $user->name= $request->name;
@@ -241,7 +242,7 @@ class PageController extends Controller
     public function diendan()
     {
         $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(8)->get();
-        $diendan=DienDan::paginate(10);
+        $diendan=DienDan::orderby('id','desc')->paginate(6);
         return view('page.diendan',['diendan'=>$diendan,'khachsan'=>$khachsan]);
     }
 
@@ -249,7 +250,8 @@ class PageController extends Controller
     {
         $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(4)->get();
         $diendan=DienDan::find($id);
-        return view('page.chitietdiendan',['diendan'=>$diendan,'khachsan'=>$khachsan]);
+        $tinhluotxem=DienDan::where('id', $id)->update(['LuotXem' => $diendan->LuotXem+1]);
+        return view('page.chitietdiendan',['diendan'=>$diendan,'khachsan'=>$khachsan,'tinhluotxem'=>$tinhluotxem]);
     }
 
     public function postthanhtoan($id, Request $request)
@@ -273,5 +275,16 @@ class PageController extends Controller
     public function cauhoi()
     {
         return view('page.cauhoi');
+    }
+
+    public function postcauhoi(Request $request)
+    {
+        $diendan=  new DienDan();
+        $diendan->TieuDe= $request->Ten;
+        $diendan->TieuDeKhongDau=changeTitle($request->Ten);
+        $diendan->NguoiDang= Auth::user()->name;
+        $diendan->LuotXem=0;
+        $diendan->save();
+        return redirect("dien-dan.html")->with('thongbao', 'Thành công');
     }
 }
