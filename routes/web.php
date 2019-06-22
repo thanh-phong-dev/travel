@@ -71,12 +71,12 @@
     //Tin tức
       Route::group(['prefix'=>'tintuc'],function(){
       //admin/tintuc/danhsach
-      Route::get('danhsach','TinTuc1Controller@getDanhSach');
-      Route::get('sua/{id}','TinTuc1Controller@getSua');
-      Route::post('sua/{id}','TinTuc1Controller@postSua');
-      Route::get('them','TinTuc1Controller@getThem');
-      Route::post('them','TinTuc1Controller@postThem');
-      Route::get('xoa/{id}','TinTuc1Controller@getXoa');
+      Route::get('danhsach','TinTucController@getDanhSach');
+      Route::get('sua/{id}','TinTucController@getSua');
+      Route::post('sua/{id}','TinTucController@postSua');
+      Route::get('them','TinTucController@getThem');
+      Route::post('them','TinTucController@postThem');
+      Route::get('xoa/{id}','TinTucController@getXoa');
     });
      // Header
      Route::group(['prefix' => 'header'], function () {

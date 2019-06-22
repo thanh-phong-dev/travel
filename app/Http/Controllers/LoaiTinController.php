@@ -25,7 +25,7 @@ class LoaiTinController extends Controller
     public function postThem(Request $request)
     {
       $validatedData = $request->validate([
-         'Ten' => 'required|unique:LoaiTin,Ten|min:3|max:100',
+         'Ten' => 'required|unique:loaitin,Ten|min:3|max:100',
      ],
      [
        'Ten.require'=>'Bạn chưa nhập tên',

@@ -22,7 +22,7 @@ class TheLoaiController extends Controller
     public function postThem(Request $request)
     {
       $validatedData = $request->validate([
-         'Ten' => 'required|unique:TheLoai,Ten|min:3|max:100',
+         'Ten' => 'required|unique:theloai,Ten|min:3|max:100',
      ],
      [
        'Ten.require'=>'Bạn chưa nhập tên',

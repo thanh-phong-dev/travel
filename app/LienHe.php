@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class LienHe extends Model
 {
     //
-      protected $table ="LienHe";
+      protected $table ="lienhe";
 }

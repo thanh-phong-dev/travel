@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="login_user/css/fontawesome-all.min.css">
       <link rel="stylesheet" type="text/css" href="login_user/css/iofrm-style.css">
       <link rel="stylesheet" type="text/css" href="login_user/css/iofrm-theme6.css">
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
    </head>
    <body>
       <div class="form-body">
@@ -52,6 +53,9 @@
                         <input class="form-control" type="text" name="sdt" placeholder="Số điện thoại" required>
                         <input class="form-control" type="email" name="email" placeholder="Địa chỉ E-mail" required>
                         <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                           <div class="g-recaptcha" data-sitekey="6LeJJqoUAAAAAAvJA-o3pQHsM6DJ0ibyxe1FcEWY" data-callback="YourOnSubmitFn"></div>
+                           </div><br/>
                         <div class="form-button">
                            <button id="submit" type="submit" class="ibtn">Đăng ký</button>
                         </div>

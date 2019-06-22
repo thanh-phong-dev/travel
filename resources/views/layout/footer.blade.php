@@ -21,9 +21,9 @@
             <span class="ftitle">Dịch vụ</span>
             <br/><br/>
             <ul class="footerlist">
-                <li><a href="#">Phòng khách sạn</a></li>
-                <li><a href="#">Thuê xe</a></li>
-                <li><a href="#">Travel Blog</a></li>
+                <li><a href="khach-san.html">Phòng khách sạn</a></li>
+            
+                <li><a href="tin-tuc.html">Travel Blog</a></li>
                 
             </ul>
         </div>
@@ -32,10 +32,10 @@
             <span class="ftitle">Về Travel </span>
             <br/><br/>
             <ul class="footerlist">
-                <li><a href="#">Cách đặt phòng</a></li>
-                <li><a href="#">Trợ giúp<p></p></li>
-                <li><a href="#">Tuyển dụng</a></li>
-                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="trang-chu.html">Trang chủ</a></li>
+                <li><a href="tin-tuc.html">Tin tức<p></p></li>
+                <li><a href="gioi-thieu.html">Giới thiêu</a></li>
+                <li><a href="lien-he.html">Liên hệ</a></li>
 
             </ul>				
         </div>

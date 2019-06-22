@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DiaDiemAnUong extends Model
 {
     //
-    protected $table ="DiaDiemAnUong";
+    protected $table ="diadiemanuong";
 
     public function danhmucanuong()
     {

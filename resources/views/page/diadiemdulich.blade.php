@@ -195,7 +195,11 @@
                         </div>
                         <div class="labelleft2">
                            <a href="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html"><b>{{$ks->Ten}}</b></a>
-                           <br/><br/><br/>
+                           <p>
+                              <i class="fas fa-map-marker-alt" style="
+                              margin-top: 15px;
+                            "></i>   {{$ks->DiaChi}}
+                           </p>
                            <p >
                               {{$ks->TomTat}}
                            </p>

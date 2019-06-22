@@ -87,7 +87,7 @@ class PageController extends Controller
     {
         $khachsan=KhachSan::orderBy('id', 'DESC')->where('HienThi',1)->paginate(8);
         $tatcakhachsan=KhachSan::where('HienThi',1)->get();
-        return view('page.khachsan1', ['khachsan'=>$khachsan, 'tatcakhachsan'=>$tatcakhachsan]);
+        return view('page.khachsan', ['khachsan'=>$khachsan, 'tatcakhachsan'=>$tatcakhachsan]);
     } 
 
     public function chitietkhachsan($id)
@@ -143,6 +143,7 @@ class PageController extends Controller
         $lienhe->Ten = $request->name;
         $lienhe->Email = $request->email;
         $lienhe->SoDienThoai=$request->sodienthoai;
+
         $lienhe->LoiNhan=$request->LoiNhan;
         $lienhe->save();
         return redirect('trang-chu.html');
@@ -187,7 +188,7 @@ class PageController extends Controller
         $validatedData = $request->validate(
        [
       'email' => 'required|unique:users,email|min:3|max:100|email',
-      'sdt'=>'min:9|max:11|numeric',
+ 
         ],
         [
     'email.required'=>'Bạn chưa nhập tên',
@@ -195,10 +196,6 @@ class PageController extends Controller
     'email.min'=>'Email phải có độ dài từ 3 đến 100 ký tự',
     'email.max'=>'Email không được quá 100 ký tự',
     'email.email'=>'Vui lòng nhập đúng Email',
-
-    'sdt.min'=>'Số điện thoại không đúng',
-    'sdt.max'=>'Số điện thoại không đúng',
-    'sdt.numeric'=>'Số điện thoại phải là số',
         ]
    );
         $user =new User;
