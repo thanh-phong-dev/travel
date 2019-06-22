@@ -188,9 +188,9 @@
                               $num = $ks->Gia;  
                               $formattedNum = number_format($num);?>
                            <span class="green size18"><b></b> {{$formattedNum}} VNĐ</span><br/>
-                           <span class="size11 grey">avg/night</span><br/><br/><br/>
-                           <form action="http://titanicthemes.com/travel/blue/details.html">
-                              <button class="bookbtn mt1" type="submit">Book</button>	
+                           <span class="size11 grey">vnđ/đêm</span><br/><br/><br/>
+                           <form action="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html">
+                              <button class="btn btn-warning" type="submit">Đặt ngay</button>	
                            </form>
                         </div>
                         <div class="labelleft2">

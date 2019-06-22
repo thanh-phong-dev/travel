@@ -66,7 +66,9 @@
          <div class="line3 margtop20"></div>
          <div class="col-md-6 bordertype1 padding20">
             <span class="opensans size30 bold grey2">100%</span><br>
-            Trả tiền khi nhận phòng
+           <p style="
+           color: green;
+       "> Trả tiền khi nhận phòng</p>
          </div>
          <div class="col-md-6 bordertype2 padding20">
             <span class="opensans size30 bold grey2">{{$khachsan->SoLuotXem}}</span> Lượt xem<br>

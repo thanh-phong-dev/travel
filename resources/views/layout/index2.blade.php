@@ -3,13 +3,13 @@
 <!-- Mirrored from titanicthemes.com/travel/blue/index6.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 15:28:33 GMT -->
 <head>
     <title>{{$tintuc->TieuDe}}</title>
+    <base href="{{asset('')}}">
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{$tintuc->TomTat}}" />
+  
     <meta name="robots" content="noodp,index,follow" />
     <meta name='revisit-after' content='1 days' />
     <meta http-equiv="content-language" content="vi" />
-    <base href="{{asset('')}}">
     <!-- Bootstrap -->
     <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="assets/css/custom.css" rel="stylesheet" media="screen">
@@ -47,6 +47,8 @@
     <meta property="og:url"           content="http://travel.maycaphegiasi.com/" />
     <meta property="og:type"          content="blog" />
     <meta property="og:image"         content="http://travel.maycaphegiasi.com/upload/tintuc/{{$tintuc->Hinh}}" />
+    <meta property="og:title"            content="{{$tintuc->TieuDe}}">
+    <meta name="description" content="{{$tintuc->TomTat}}" />
 </head>
   <body id="top">
         <div id="fb-root"></div>
@@ -58,7 +60,6 @@
 	@include('layout.footer')
 	</div>
 	<!-- / WRAP -->
-	
     <!-- Javascript -->
     <!-- This page JS -->
 	<script src="assets/js/js-index3.js"></script>	
@@ -146,7 +147,7 @@
 	<script type="text/javascript" src="assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
 
     <!-- Counter -->	
-    <script src="assets/js/counter.js"></script>	
+    
 	
     <!-- Carousel-->	
     <script src="assets/js/initialize-carousel-detailspage.js"></script>		

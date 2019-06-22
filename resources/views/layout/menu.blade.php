@@ -19,7 +19,7 @@
                 <li><a href="tin-tuc.html">Tin tức</a></li>
                 <li><a href="khach-san.html">Khách sạn</a></li>
                 <li><a href="gioi-thieu.html">Giới thiệu</a></li>
-                <li><a href="#">Khuyến mãi</a></li>
+              
                 <li><a href="dien-dan.html">Hỏi đáp</a></li>
                 <li><a href="lien-he.html">Liên hệ quảng cáo</a></li>
                 @if(Auth::User() != null)
