@@ -6,7 +6,12 @@
     <base href="{{asset('')}}">
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <meta name="keyword" content="{{$tintuc->TuKhoa}}">
+    <meta property="og:url"           content="http://travel.maycaphegiasi.com/" />
+    <meta property="og:type"          content="blog" />
+    <meta property="og:image"         content="http://travel.maycaphegiasi.com/upload/tintuc/{{$tintuc->Hinh}}" />
+    <meta property="og:title"            content="{{$tintuc->TieuDe}}">
+    <meta name="description" content="{{$tintuc->TomTat}}" />
     <meta name="robots" content="noodp,index,follow" />
     <meta name='revisit-after' content='1 days' />
     <meta http-equiv="content-language" content="vi" />
@@ -44,11 +49,7 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     {{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> --}}
     <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <meta property="og:url"           content="http://travel.maycaphegiasi.com/" />
-    <meta property="og:type"          content="blog" />
-    <meta property="og:image"         content="http://travel.maycaphegiasi.com/upload/tintuc/{{$tintuc->Hinh}}" />
-    <meta property="og:title"            content="{{$tintuc->TieuDe}}">
-    <meta name="description" content="{{$tintuc->TomTat}}" />
+   
 </head>
   <body id="top">
         <div id="fb-root"></div>

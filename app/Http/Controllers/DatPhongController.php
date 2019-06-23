@@ -11,10 +11,18 @@ class DatPhongController extends Controller
 {
   public function getDanhSach()
   {
-    $datphong=DatPhong::orderBy('id','DESC')->get();
+    $datphong=DatPhong::orderBy('id','DESC')->where('TinhTrang',0)->get();
     return view ('admin.datphong.danhsach',['datphong'=> $datphong]
   );
   }
+
+  public function getDanhSachDaXacNhan()
+  {
+    $datphong=DatPhong::orderBy('id','DESC')->where('TinhTrang',1)->get();
+    return view ('admin.datphong.danhsachdaxacnhan',['datphong'=> $datphong]
+  );
+  }
+
   public function getXem($id)
   {
     $datphong=DatPhong::find($id);

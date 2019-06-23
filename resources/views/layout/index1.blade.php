@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Du lịch Việt Nam</title>
     <base href="{{asset('')}}">
+    <meta name="keyword" content="Du lịch Đà Lạt, Cảnh Đẹp Đà Lạt">
     <meta name="robots" content="noodp,index,follow" />
     <meta name='revisit-after' content='1 days' />
     <meta http-equiv="content-language" content="vi" />
     <!-- Bootstrap -->
     <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="assets/css/custom.css" rel="stylesheet" media="screen">
+     <!-- Carousel -->
+	<link href="examples/carousel/carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="plugins/jslider/css/jslider.css" type="text/css">
     <link rel="stylesheet" href="plugins/jslider/css/jslider.round.css" type="text/css">	
-    <!-- Carousel -->
-	<link href="examples/carousel/carousel.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.js"></script>
@@ -39,39 +40,26 @@
 	
     <!-- jQuery -->	
     <script src="assets/js/jquery.v2.0.3.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	
 	<!-- bin/jquery.slider.min.js -->
 	<script type="text/javascript" src="plugins/jslider/js/jshashtable-2.1_src.js"></script>
 	<script type="text/javascript" src="plugins/jslider/js/jquery.numberformatter-1.2.3.js"></script>
 	<script type="text/javascript" src="plugins/jslider/js/tmpl.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="assets/js/jquery.v2.0.3.js"></script>
+   
 	<script type="text/javascript" src="plugins/jslider/js/jquery.dependClass-0.1.js"></script>
 	<script type="text/javascript" src="plugins/jslider/js/draggable-0.1.js"></script>
 	<script type="text/javascript" src="plugins/jslider/js/jquery.slider.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="assets/js/jquery.v2.0.3.js"></script>
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    {{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> --}}
-   
-    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<!-- end -->
   </head>
   <body id="top">
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=2219634835025739&autoLogAppEvents=1"></script>
 	<!-- Top wrapper -->
     @include('layout.menu')
-
-	<!-- / Top wrapper -->
-	<!--
-	#################################
-		- THEMEPUNCH BANNER -
-	#################################
-    -->
-    
-  
-	<!-- WRAP -->
-	
         @yield('content')
-
 		<!-- FOOTER -->
 	@include('layout.footer')
 	</div>
@@ -127,7 +115,6 @@
     <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
     <!-- Counter -->	
-    <script src="assets/js/counter.js"></script>	
 	
     <!-- Nicescroll  -->	
 	<script src="assets/js/jquery.nicescroll.min.js"></script>
@@ -172,10 +159,39 @@
     <!-- Js Easing-->	
     <script src="assets/js/jquery.easing.js"></script>
 
-	
     <!-- Bootstrap-->	
     <script src="dist/js/bootstrap.min.js"></script>
-   
+    
+    {{-- Test List 4 --}}
+     <!-- Javascript -->	
+     <script src="assets/js/js-list4.js"></script>	
+	
+     <!-- Custom Select -->
+     <script type='text/javascript' src='assets/js/jquery.customSelect.js'></script>
+     
+     <!-- Custom Select -->
+     <script type='text/javascript' src='js/lightbox.js'></script>	
+     
+     <!-- JS Ease -->	
+     <script src="assets/js/jquery.easing.js"></script>
+     
+     <!-- Custom functions -->
+     <script src="assets/js/functions.js"></script>
+     
+     <!-- jQuery KenBurn Slider  -->
+     <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+ 
+     <!-- Counter -->	
+     <script src="assets/js/counter.js"></script>	
+     
+     <!-- Nicescroll  -->	
+     <script src="assets/js/jquery.nicescroll.min.js"></script>
+     
+     <!-- Picker -->	
+     <script src="assets/js/jquery-ui.js"></script>
+     
+     <!-- Bootstrap -->	
+     <script src="dist/js/bootstrap.min.js"></script>
   </body>
 
 <!-- Mirrored from titanicthemes.com/travel/blue/index6.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 15:28:35 GMT -->

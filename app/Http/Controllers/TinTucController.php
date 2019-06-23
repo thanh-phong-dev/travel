@@ -11,10 +11,16 @@ class TinTucController extends Controller
 {
   public function getDanhSach()
   {
-    $tintuc=TinTuc::orderBy('SoLuotXem','DESC')->get();
+    $tintuc=TinTuc::orderBy('SoLuotXem','DESC')->where('HienThi',1)->get();
     return view ('admin.tintuc.danhsach',['tintuc'=> $tintuc]
   );
   }
+   public function getDanhSachDaXoa()
+   {
+     $tintuc=TinTuc::where('HienThi',0)->get();
+    return view ('admin.tintuc.danhsachdaxoa',['tintuc'=> $tintuc]
+    );
+   }
   //Thêm
   public function getThem()
   {
@@ -48,6 +54,8 @@ class TinTucController extends Controller
     $tintuc->Tag=$request->Tag;
     $tintuc->HienThi=$request->HienThi;
     $tintuc->NguoiDang=$request->NguoiDang;
+    $tintuc->TuKhoa=$request->SEOTitle;
+
     if($request->hasFile('Hinh'))
     {
       $file=  $request->file('Hinh');
@@ -92,6 +100,7 @@ class TinTucController extends Controller
     $tintuc->Tag=$request->Tag;
     $tintuc->HienThi=$request->HienThi;
     $tintuc->NguoiDang=$request->NguoiDang;
+    $tintuc->TuKhoa=$request->SEOTitle;
    
     if($request->hasFile('Hinh'))
     {

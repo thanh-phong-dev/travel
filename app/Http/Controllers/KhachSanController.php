@@ -13,8 +13,14 @@ class KhachSanController extends Controller
 {
     public function getDanhSach()
     {
-        $khachsan=KhachSan::all();
+        $khachsan=KhachSan::where('HienThi',1)->orderby('id','DESC')->get();
         return view('admin.khachsan.danhsach', ['khachsan'=>$khachsan]);
+    }
+
+    public function getDanhSachNgungHoatDong()
+    {
+        $khachsan=KhachSan::where('HienThi',0)->orderby('id','DESC')->get();
+        return view('admin.khachsan.danhsachngunghoatdong', ['khachsan'=>$khachsan]);
     }
 
     public function getThem()

@@ -77,35 +77,39 @@
             Star rating <span class="collapsearrow"></span>
             </button>
             <div id="collapse1" class="collapse in">
-               <div class="hpadding20">
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 sao
-                     </label>
+                  <div class="hpadding20">
+                        <form action="tim-kiem-khach-san.html" method="POST">
+                              <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                           <div class="checkbox">
+                              <label>
+                              <input type="checkbox"  name="tukhoa1" value="5" ><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 sao
+                              </label>
+                           </div>
+                           <div class="checkbox">
+                              <label>
+                              <input type="checkbox" name="tukhoa1" value="4"><img src="images/filter-rating-4.png" class="imgpos1" alt=""/> 4 sao
+                              </label>
+                           </div>
+                           <div class="checkbox">
+                              <label>
+                              <input type="checkbox"  name="tukhoa1" value="3"><img src="images/filter-rating-3.png" class="imgpos1" alt=""/> 3 sao
+                              </label>
+                           </div>
+                           <div class="checkbox">
+                              <label>
+                              <input type="checkbox"  name="tukhoa1" value="2"> <img src="images/filter-rating-2.png" class="imgpos1" alt=""/> 2 sao
+                              </label>
+                           </div>
+                           <div class="checkbox">
+                              <label>
+                              <input type="checkbox"  name="tukhoa1" value="1"><img src="images/filter-rating-1.png" class="imgpos1" alt=""/> 1 sao
+                              </label>
+                           </div>
+                           <button type="submit" class="btn-search3">Tìm kiếm</button>
+                              </form>
                   </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-4.png" class="imgpos1" alt=""/> 4 sao
-                     </label>
-                  </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-3.png" class="imgpos1" alt=""/> 3 sao
-                     </label>
-                  </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-2.png" class="imgpos1" alt=""/> 2 sao
-                     </label>
-                  </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-1.png" class="imgpos1" alt=""/> 1 sao
-                     </label>
-                  </div>
+                  <div class="clearfix"></div>
                </div>
-               <div class="clearfix"></div>
-            </div>
             <!-- End of Star ratings -->	
             <div class="line2"></div>
             <!-- Price range -->					

@@ -111,7 +111,7 @@
                         </div>
                         <div class="form-group">
                            <label>Từ Khóa</label>
-                           <div><input data-parsley-type="alphanum" type="text" value="{{$tintuc->SEOTitle}}" name="SEOTitle" id="SEOTitle" class="form-control"
+                           <div><input data-parsley-type="alphanum" type="text" value="{{$tintuc->TuKhoa}}" name="SEOTitle" id="SEOTitle" class="form-control"
                               required placeholder="Nhập tên từ khóa"></div>
                         </div>
                         <div class="form-group">
@@ -144,13 +144,6 @@
    let today = new Date().toISOString().substr(0, 10);
    document.querySelector("#today").value = today;
 </script>
-<script type="text/javascript">
-   $(function () {
-       $("#TieuDe").keyup(function () {
-           var text = $.trim($(this).val().toLowerCase());
-       $('#SEOTitle').val(text);
-       }).keyup();
-   });
-</script>
+
 <script>
 @endsection

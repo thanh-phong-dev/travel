@@ -39,6 +39,7 @@
          
     Route::group(['prefix'=>'khachsan'],function(){
       //admin/theloai/danhsach
+      Route::get('danhsachngunghoatdong','KhachSanController@getDanhSachNgungHoatDong');
       Route::get('danhsach','KhachSanController@getDanhSach');
       Route::get('sua/{id}','KhachSanController@getSua');
       Route::post('sua/{id}','KhachSanController@postSua');
@@ -71,6 +72,7 @@
     //Tin tức
       Route::group(['prefix'=>'tintuc'],function(){
       //admin/tintuc/danhsach
+      Route::get('danhsachdaxoa','TinTucController@getDanhSachDaXoa');
       Route::get('danhsach','TinTucController@getDanhSach');
       Route::get('sua/{id}','TinTucController@getSua');
       Route::post('sua/{id}','TinTucController@postSua');
@@ -99,6 +101,7 @@
   Route::group(['prefix'=>'datphong'],function(){
     //admin/user/danhsach
       Route::get('danhsach','DatPhongController@getDanhSach');
+      Route::get('danhsachdaxacnhan','DatPhongController@getDanhSachDaXacNhan');
       Route::get('sua/{id}','DatPhongController@getSua');
       Route::post('sua/{id}','DatPhongController@postSua');
       Route::get('xem/{id}.html','DatPhongController@getXem');
@@ -188,6 +191,10 @@
 
     Route::post('tim-kiem-khach-san.html','PageController@timkiemkhachsan');
 
+    Route::post('tim-kiem-khach-san-theo-gia.html','PageController@timkiemkhachsantheogia');
+
+    Route::post('sap-xep.html','PageController@sapxep');
+
     Route::get('thanh-toan/{id}/{TenKhongDau}.html','PageController@thanhtoan');
 
     Route::post('thanh-toan/{id}/{TenKhongDau}.html','PageController@postthanhtoan');
@@ -207,6 +214,7 @@
     Route::get('dien-dan-cau-hoi.html','PageController@cauhoi');
 
     Route::post('dien-dan-cau-hoi.html','PageController@postcauhoi');
+
     //  
     Route::get('test','PageController@test');
 

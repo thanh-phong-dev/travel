@@ -34,8 +34,9 @@
                   </div>
                   <img src="upload/tintuc/{{$tt->Hinh}}" class="fwimg" alt="{{$tt->TieuDe}}"/>
                </div>
-               <br/>
-               <a href="chi-tiet-tin-tuc/{{$tt->id}}/{{$tt->TieuDeKhongDau}}.html"><span class="lato size22 dark bold">{{$tt->TieuDe}}</span></a><br/>
+            
+               <a href="chi-tiet-tin-tuc/{{$tt->id}}/{{$tt->TieuDeKhongDau}}.html">
+                  <h1 class="lato size22 dark bold">{{$tt->TieuDe}}</h1></a>
                <?php
                   $thoigian=$tt->created_at; 
                   $dateM=date("d-m-Y",strtotime($thoigian)); ?>    

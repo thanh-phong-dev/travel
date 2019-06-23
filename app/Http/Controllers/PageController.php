@@ -225,8 +225,30 @@ class PageController extends Controller
     public function timkiemkhachsan(Request $request)
     {
         $tukhoa1=$request->tukhoa1;
-        $khachsan=KhachSan::where('DiaChi','like', "%$tukhoa1%")->get();
+        // $tukhoagia=changeNumber($request->tukhoa1);
+        // $tukhoagia1=changeNumber1($request->tukhoa1);
+        $khachsan=KhachSan::where('DiaChi','like', "%$tukhoa1%")->orwhere('Sao','like',"%$tukhoa1%")->get();
+        // $khachsan=KhachSan::whereBetween('Gia',[$tukhoagia1, $tukhoagia])->get();
         return view('page.timkiemkhachsan', ['khachsan'=>$khachsan,'tukhoa1'=>$tukhoa1]);
+    }
+
+    public function timkiemkhachsantheogia(Request $request)
+    {
+        $tukhoagia=changeNumber($request->tukhoa1);
+        $tukhoagia1=changeNumber1($request->tukhoa1);
+        $khachsan=KhachSan::whereBetween('Gia',[$tukhoagia1, $tukhoagia])->get();
+        return view('page.timkiemkhachsan', ['khachsan'=>$khachsan,'tukhoagia1'=>$tukhoagia1,'tukhoagia'=>$tukhoagia]);
+    }
+
+    public function sapxep(Request $request)
+    {
+        $tukhoa=$request->tukhoa;
+        if($tukhoa==1)
+        $khachsan=KhachSan::orderby('Gia','asc')->get();
+        else if($tukhoa==2)
+        $khachsan=KhachSan::orderby('Gia','DESC')->get();
+
+        return view('page.timkiemkhachsan',['tukhoa'=>$tukhoa,'khachsan'=>$khachsan]);
     }
 
     public function thanhtoan($id)

@@ -19,6 +19,22 @@ function changeTitle($str,$strSymbol='-',$case=MB_CASE_LOWER){// MB_CASE_UPPER /
 	return $str;
 }
 
+function changeNumber($str)
+{
+	// $str=str_replace(";",',',$str);
+	// $str=strstr($str,';');
+	$str=strstr($str,';');
+	$str=str_replace(";",'',$str);
+	return $str;
+}
+function changeNumber1($str)
+{
+
+	$str=strstr($str,';',true);
+	$str=str_replace(";",'',$str);
+	return $str;
+}
+
 function stripUnicode($str){
 	if(!$str) return '';
 	//$str = str_replace($a, $b, $str);

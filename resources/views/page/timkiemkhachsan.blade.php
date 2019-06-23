@@ -7,7 +7,7 @@
          <div class="left">
             <ul class="bcrumbs">
                <li>/</li>
-            <li><a href="#">Kết quả tìm kiếm của bạn tại {{$tukhoa1}}</a></li>
+            <li><a href="#">Kết quả tìm kiếm của bạn </a></li>
             </ul>
          </div>
          <a class="backbtn right" href="#"></a>
@@ -71,41 +71,70 @@
             <div class="line2"></div>
             <!-- Star ratings -->	
             <button type="button" class="collapsebtn" data-toggle="collapse" data-target="#collapse1">
-            Star rating <span class="collapsearrow"></span>
-            </button>
-            <div id="collapse1" class="collapse in">
-               <div class="hpadding20">
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 sao
-                     </label>
+               Star rating <span class="collapsearrow"></span>
+               </button>
+               <div id="collapse1" class="collapse in">
+                  <div class="hpadding20">
+                        <form action="tim-kiem-khach-san.html" method="POST">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                     <div class="checkbox">
+                        <label>
+                        <input type="checkbox"  name="tukhoa1" value="5" ><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 sao
+                        </label>
+                     </div>
+                     <div class="checkbox">
+                        <label>
+                        <input type="checkbox" name="tukhoa1" value="4"><img src="images/filter-rating-4.png" class="imgpos1" alt=""/> 4 sao
+                        </label>
+                     </div>
+                     <div class="checkbox">
+                        <label>
+                        <input type="checkbox"  name="tukhoa1" value="3"><img src="images/filter-rating-3.png" class="imgpos1" alt=""/> 3 sao
+                        </label>
+                     </div>
+                     <div class="checkbox">
+                        <label>
+                        <input type="checkbox"  name="tukhoa1" value="2"> <img src="images/filter-rating-2.png" class="imgpos1" alt=""/> 2 sao
+                        </label>
+                     </div>
+                     <div class="checkbox">
+                        <label>
+                        <input type="checkbox"  name="tukhoa1" value="1"><img src="images/filter-rating-1.png" class="imgpos1" alt=""/> 1 sao
+                        </label>
+                     </div>
+                     <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                        </form>
                   </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-4.png" class="imgpos1" alt=""/> 4 sao
-                     </label>
-                  </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-3.png" class="imgpos1" alt=""/> 3 sao
-                     </label>
-                  </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-2.png" class="imgpos1" alt=""/> 2 sao
-                     </label>
-                  </div>
-                  <div class="checkbox">
-                     <label>
-                     <input type="checkbox"><img src="images/filter-rating-1.png" class="imgpos1" alt=""/> 1 sao
-                     </label>
-                  </div>
+                  <div class="clearfix"></div>
                </div>
-               <div class="clearfix"></div>
-            </div>
+   
             <!-- End of Star ratings -->	
             <div class="line2"></div>
+
             <!-- Price range -->					
+              
+            <button type="button" class="collapsebtn" data-toggle="collapse" data-target="#collapse2">
+               Price range <span class="collapsearrow"></span>
+             </button>
+             <form action="tim-kiem-khach-san-theo-gia.html" method="POST">
+               <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+             <div id="collapse2" class="collapse in">
+                <div class="padding20">
+                   <div class="layout-slider wh100percent">
+                   <span class="cstyle09">
+                     <input id="Slider1" type="slider" name="tukhoa1" value="1000000;2500000" />
+                     <br>
+                     <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                  </span>
+                   </div>
+                   <script type="text/javascript" >
+                     jQuery("#Slider1").slider({ from: 300000, to: 5000000, step: 5, smooth: true, round: 0, dimension: "&nbsp;đ", skin: "round" });
+                   </script>
+                </div>
+               
+             </div>
+             
+            </form>
             <!-- End of Price range -->	
             <div class="line2"></div>
             <!-- Acomodations -->		
@@ -125,21 +154,26 @@
             <div class="hpadding20">
                <!-- Top filters -->
                <div class="topsortby">
+                  
                      <div class="col-md-4 offset-0">
-                           <div class="left mt7"><b>Sắp xếp :</b></div>
-                           <div class="right wh70percent">
-                              <select class="form-control">
-                                 <option selected>Theo sao</option>
-                                 <option>5 stars</option>
-                                 <option>4 stars</option>
-                                 <option>3 stars</option>
-                                 <option>2 stars</option>
-                                 <option>1 stars</option>
-                              </select>
-                           </div>
+                        <div class="left mt7"><b>Sắp xếp :</b></div>
+                        <form action="sap-xep.html" method="POST">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <div class="right wh70percent">
+                           <select class="form-control" name="tukhoa">
+                              <option value="1" selected>Giá tăng dần</option>
+                              <option value="2">Giá giảm dần</option>
+                              <option value="3">Sao tăng dần</option>
+                              <option value="4">Sao giảm dần</option>
+                              <option>1 stars</option>
+                           </select>
+                          <button type="submit" class="btn btn-primary">Sắp xếp</button>
+   
                         </div>
-                 
-               </div>
+                     </form>
+                     </div>
+                    
+                  </div>
                <!-- End of topfilters-->
             </div>
             <!-- End of padding -->

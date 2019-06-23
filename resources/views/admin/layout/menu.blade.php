@@ -85,6 +85,8 @@
                 class="mdi mdi-chevron-right"></i></span></span></a>
              <ul class="submenu">
                 <li><a href="admin/tintuc/danhsach">Danh sách tin tức</a></li>
+                <li><a href="admin/tintuc/danhsachdaxoa">Danh sách tin tức đã xóa</a></li>
+
                 {{--
                 <li><a href="admin/tintuc/danhsachchoduyet">Danh sách chờ duyệt</a></li>
                 --}}
@@ -99,6 +101,7 @@
                 class="mdi mdi-chevron-right"></i></span></span></a>
              <ul class="submenu">
                 <li><a href="admin/khachsan/danhsach">Danh sách khách sạn</a></li>
+                <li><a href="admin/khachsan/danhsachngunghoatdong">Danh sách khách sạn ngưng hoạt động</a></li>
                 {{--
                 <li><a href="admin/tintuc/danhsachchoduyet">Danh sách chờ duyệt</a></li>
                 --}}
@@ -112,7 +115,8 @@
                 class="float-right menu-arrow"><i
                 class="mdi mdi-chevron-right"></i></span></span></a>
              <ul class="submenu">
-                <li><a href="admin/datphong/danhsach">Danh sách đặt phòng</a></li>
+                <li><a href="admin/datphong/danhsach">Danh sách đặt phòng(chờ xử lý)</a></li>
+                <li><a href="admin/datphong/danhsachdaxacnhan">Danh sách đặt phòng(đã xác nhận)</a></li>
                 {{--
                 <li><a href="admin/tintuc/danhsachchoduyet">Danh sách chờ duyệt</a></li>
                 --}}
