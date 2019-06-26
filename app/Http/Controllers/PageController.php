@@ -219,7 +219,7 @@ class PageController extends Controller
         $tukhoa =$request->tukhoa;
         $tintuc =TinTuc::where('TieuDe', 'like', "%$tukhoa%")->paginate(10);
         $khachsannoibat=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(6)->get();
-        return view('page.timkiem', ['tintuc'=>$tintuc,'tukhoa'=>$tukhoa,'khachsannoibat'=>$khachsannoibat]);
+        return view('page.timkiemtintuc', ['tintuc'=>$tintuc,'tukhoa'=>$tukhoa,'khachsannoibat'=>$khachsannoibat]);
     }
  
     public function timkiemkhachsan(Request $request)
@@ -247,7 +247,10 @@ class PageController extends Controller
         $khachsan=KhachSan::orderby('Gia','asc')->get();
         else if($tukhoa==2)
         $khachsan=KhachSan::orderby('Gia','DESC')->get();
-
+        else if($tukhoa==3)
+        $khachsan=KhachSan::orderby('Sao','ASC')->get();
+        else if($tukhoa==4)
+        $khachsan=KhachSan::orderby('Sao','DESC')->get();
         return view('page.timkiemkhachsan',['tukhoa'=>$tukhoa,'khachsan'=>$khachsan]);
     }
 

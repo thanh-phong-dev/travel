@@ -124,7 +124,10 @@
             <!-- IMG RIGHT TEXT -->
             <div class="col-md-4 cpdd02">
                <div class="opensans grey">
-                  <input type="text" placeholder="Tìm kiếm.." class="form-control logpadding" name="s"><br/>
+                     <form action="tim-kiem-tin-tuc.html" method="POST"> 
+                           <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                           <input value="" type="text" placeholder="Tìm kiếm.." class="form-control logpadding" name="tukhoa"><br/>
+                        </form>
                   <span class="lato size18 dark bold">Địa điểm được yêu thích</span><br/>
                   <ul class="blogcat">
                      @foreach($loaitin as $lt)

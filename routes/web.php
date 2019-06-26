@@ -187,7 +187,7 @@
 
     Route::post('dang-nhap.html','PageController@postDangNhap');
 
-    Route::post('timkiem','PageController@timkiem');
+    Route::post('tim-kiem-tin-tuc.html','PageController@timkiem');
 
     Route::post('tim-kiem-khach-san.html','PageController@timkiemkhachsan');
 

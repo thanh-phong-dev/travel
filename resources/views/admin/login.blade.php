@@ -7,7 +7,7 @@
          http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport"
          content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-      <title>Quản lí Món Ngon Việt</title>
+      <title>Quản lí du lịch Việt</title>
       <base href="{{asset('')}}">
       <meta content="Admin
          Dashboard" name="description">

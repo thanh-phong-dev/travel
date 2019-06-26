@@ -27,6 +27,8 @@
          <div class="hpadding50c">
             <!-- LEFT IMG -->
             <div class="col-md-8 cpdd01 grey2" id="co">
+                    <?php $checkketqua= $tintuc->count(); ?>
+                    @if($checkketqua>0)
                @foreach($tintuc as $tt)
                <div class="abover">
                   <div class="abbg">
@@ -48,6 +50,11 @@
                <br/><br/>
                <br/><br/>
                @endforeach 
+               @else 
+               <p style="font-size:25px">
+                  Không tìm thấy kết quả bạn cần tìm về "{{$tukhoa}}"
+               </p>
+               @endif
                <script>
                   //------------------------------
                   //CaroufredSell

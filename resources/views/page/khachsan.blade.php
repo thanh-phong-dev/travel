@@ -135,9 +135,7 @@
                      jQuery("#Slider1").slider({ from: 300000, to: 5000000, step: 5, smooth: true, round: 0, dimension: "&nbsp;$", skin: "round" });
                    </script>
                 </div>
-               
              </div>
-             
             </form>
                <!-- End of Price range -->	
                <div class="line2"></div>
@@ -146,19 +144,17 @@
             <div class="hpadding20">
                <!-- Top filters -->
                <div class="topsortby">
-                  
                   <div class="col-md-4 offset-0">
                      <div class="left mt7"><b>Sắp xếp :</b></div>
                      <form action="sap-xep.html" method="POST">
                      <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                      <div class="right wh70percent">
                         <select class="form-control" name="tukhoa">
-                           <option selected></option>
-                           <option value="1">Giá tăng dần</option>
+                           
+                           <option value="1" selected>Giá tăng dần</option>
                            <option value="2">Giá giảm dần</option>
                            <option value="3">Sao tăng dần</option>
                            <option value="4">Sao giảm dần</option>
-                           <option>1 stars</option>
                         </select>
                        <button type="submit" class="btn btn-primary">Sắp xếp</button>
 

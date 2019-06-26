@@ -165,14 +165,11 @@
                               <option value="2">Giá giảm dần</option>
                               <option value="3">Sao tăng dần</option>
                               <option value="4">Sao giảm dần</option>
-                              <option>1 stars</option>
                            </select>
                           <button type="submit" class="btn btn-primary">Sắp xếp</button>
-   
                         </div>
                      </form>
                      </div>
-                    
                   </div>
                <!-- End of topfilters-->
             </div>
