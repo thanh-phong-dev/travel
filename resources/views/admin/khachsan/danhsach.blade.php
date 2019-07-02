@@ -29,8 +29,8 @@
                                                 <th>Địa Chỉ</th>
                                                 <th>Hình</th>
                                                 <th>Xem</th>
-                                                <th>Hoạt động</th>
                                                 <th>Thao tác</th>
+                                                <th>Hoạt động</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -47,6 +47,9 @@
                                                 <td>{{$tt->DiaChi}}</td>
                                                 <td><img src="upload/khachsan/{{$tt->Hinh}}" width="100px" height="70px" alt=""></td>
                                                 <td class="center"><i class="mdi mdi-eye"></i> <a href="admin/khachsan/xem/{{$tt->id}}">Xem</a></td>
+                                                <td class="center"><i class="mdi mdi-table-edit"></i> <a href="admin/khachsan/sua/{{$tt->id}}" style="
+                                                    color: blue;">Cập nhật|</a> <i class="far fa-trash-alt"></i> <a href="admin/khachsan/xoa/{{$tt->id}}" style="
+                                                    color: red;" onclick="return confirmAction()">Xóa</a> </td>
                                                 <td>@if($tt->HienThi==1)
                                                    <p style="
                                                    color: green;
@@ -58,8 +61,7 @@
                                                
                                                 @endif
                                                 </td>
-                                                <td class="center"><i class="mdi mdi-table-edit"></i> <a href="admin/khachsan/sua/{{$tt->id}}" style="
-                                                    color: blue;">Cập nhật </a></td>
+                                               
                                                 <?php $i++; ?>
                                             </tr>
                                             @endforeach

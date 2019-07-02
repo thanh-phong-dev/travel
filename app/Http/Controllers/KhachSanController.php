@@ -19,7 +19,7 @@ class KhachSanController extends Controller
 
     public function getDanhSachNgungHoatDong()
     {
-        $khachsan=KhachSan::where('HienThi',0)->orderby('id','DESC')->get();
+        $khachsan=KhachSan::where('HienThi',0)->orderby('updated_at','DESC')->get();
         return view('admin.khachsan.danhsachngunghoatdong', ['khachsan'=>$khachsan]);
     }
 
@@ -211,6 +211,12 @@ class KhachSanController extends Controller
             $phongkhachsan->Hinh="";
         }
         $phongkhachsan->save();
+      
+    }
+
+    public function getXoa($id)
+    {
+        $khachsan=KhachSan::where('id',$id)->update(['HienThi'=>0]);
         return redirect('admin/khachsan/danhsach')->with('thongbao','Thêm Thành Công');
     }
 }

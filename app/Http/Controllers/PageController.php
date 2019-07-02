@@ -79,13 +79,13 @@ class PageController extends Controller
     public function ajax()
     {
         $loaitin=LoaiTin::orderBy('id', 'DESC')->take(6)->get();
-        $tintuc=TinTuc::orderBy('id', 'DESC')->paginate(3);
+        $tintuc=TinTuc::orderBy('id','DESC')->paginate(3);
         return view('page.ajaxloatin', ['loaitin'=>$loaitin,'tintuc'=>$tintuc]);
     }
 
     public function khachsan()
     {
-        $khachsan=KhachSan::orderBy('id', 'DESC')->where('HienThi',1)->paginate(8);
+        $khachsan=KhachSan::where('HienThi',1)->paginate(20);
         $tatcakhachsan=KhachSan::where('HienThi',1)->get();
         return view('page.khachsan', ['khachsan'=>$khachsan, 'tatcakhachsan'=>$tatcakhachsan]);
     } 
@@ -96,8 +96,9 @@ class PageController extends Controller
         $khachsan=KhachSan::find($id);
         $phongcuakhachsan=PhongKhachSan::where('idkhachsan', '=', $khachsan->id)->get();
         $khachsanlienquan=KhachSan::where('DiaChi', 'like', $khachsan->DiaChi)->get()->take(5);
+        $tintucdulich=TinTuc::where('TieuDe','like',"%$khachsan->DiaChi%")->get()->take(4);
         $tinhluotxem=KhachSan::where('id', $id)->update(['SoLuotXem' => $khachsan->SoLuotXem+1]);
-        return view('page.chitietkhachsan', ['tinhluotxem'=>$tinhluotxem,'khachsan'=>$khachsan,'khachsanlienquan'=>$khachsanlienquan,'phongkhachsan'=>$phongkhachsan,'phongcuakhachsan'=>$phongcuakhachsan]);
+        return view('page.chitietkhachsan', ['tintucdulich'=>$tintucdulich,'tinhluotxem'=>$tinhluotxem,'khachsan'=>$khachsan,'khachsanlienquan'=>$khachsanlienquan,'phongkhachsan'=>$phongkhachsan,'phongcuakhachsan'=>$phongcuakhachsan]);
     }
 
     public function chitiettintuc1($id)
@@ -112,7 +113,7 @@ class PageController extends Controller
     public function diadiemdulich($id)
     {
         $loaitin=LoaiTin::find($id);
-        $khachsan=KhachSan::where('idDiaDiem', $id)->get();
+        $khachsan=KhachSan::where('idDiaDiem', $id)->where('HienThi',1)->get();
         return view('page.diadiemdulich', ['khachsan'=>$khachsan,'loaitin'=>$loaitin]);
     }
 
@@ -217,7 +218,7 @@ class PageController extends Controller
     public function timkiem(Request $request)
     {
         $tukhoa =$request->tukhoa;
-        $tintuc =TinTuc::where('TieuDe', 'like', "%$tukhoa%")->paginate(10);
+        $tintuc =TinTuc::where('TieuDe', 'like', "%$tukhoa%")->where('HienThi',1)->paginate(10);
         $khachsannoibat=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(6)->get();
         return view('page.timkiemtintuc', ['tintuc'=>$tintuc,'tukhoa'=>$tukhoa,'khachsannoibat'=>$khachsannoibat]);
     }
@@ -227,7 +228,7 @@ class PageController extends Controller
         $tukhoa1=$request->tukhoa1;
         // $tukhoagia=changeNumber($request->tukhoa1);
         // $tukhoagia1=changeNumber1($request->tukhoa1);
-        $khachsan=KhachSan::where('DiaChi','like', "%$tukhoa1%")->orwhere('Sao','like',"%$tukhoa1%")->get();
+        $khachsan=KhachSan::where('HienThi',1)->where('DiaChi','like', "%$tukhoa1%")->orwhere('Sao','like',"%$tukhoa1%")->get();
         // $khachsan=KhachSan::whereBetween('Gia',[$tukhoagia1, $tukhoagia])->get();
         return view('page.timkiemkhachsan', ['khachsan'=>$khachsan,'tukhoa1'=>$tukhoa1]);
     }
@@ -244,13 +245,13 @@ class PageController extends Controller
     {
         $tukhoa=$request->tukhoa;
         if($tukhoa==1)
-        $khachsan=KhachSan::orderby('Gia','asc')->get();
+        $khachsan=KhachSan::orderby('Gia','asc')->where('HienThi',1)->get();
         else if($tukhoa==2)
-        $khachsan=KhachSan::orderby('Gia','DESC')->get();
+        $khachsan=KhachSan::orderby('Gia','DESC')->where('HienThi',1)->get();
         else if($tukhoa==3)
-        $khachsan=KhachSan::orderby('Sao','ASC')->get();
+        $khachsan=KhachSan::orderby('Sao','ASC')->where('HienThi',1)->get();
         else if($tukhoa==4)
-        $khachsan=KhachSan::orderby('Sao','DESC')->get();
+        $khachsan=KhachSan::orderby('Sao','DESC')->where('HienThi',1)->get();
         return view('page.timkiemkhachsan',['tukhoa'=>$tukhoa,'khachsan'=>$khachsan]);
     }
 

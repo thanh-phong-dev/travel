@@ -88,7 +88,7 @@
                         <div class="form-group">
                            <label>Hoạt động</label><br/>
                            <label class="radio-inline">
-                           <input name="HienThi" value="0"
+                           <input name="HienThi" value="1"
                            @if($tintuc->HienThi==1)
                            {{"checked"}}
                            @endif

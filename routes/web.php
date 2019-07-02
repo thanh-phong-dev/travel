@@ -52,6 +52,7 @@
       Route::get('themphong','KhachSanController@getThemPhong');
       Route::post('themphong','KhachSanController@postThemPhong');
       Route::get('xem/{id}','KhachSanController@getXem');
+      Route::get('xoa/{id}','KhachSanController@getXoa');
     });
     //
       Route::group(['prefix'=>'comment'],function(){

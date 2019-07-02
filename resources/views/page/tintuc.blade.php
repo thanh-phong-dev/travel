@@ -40,7 +40,7 @@
                <?php
                   $thoigian=$tt->created_at; 
                   $dateM=date("d-m-Y",strtotime($thoigian)); ?>    
-               <span class="grey">{{$dateM}}/Đăng bởi {{$tt->NguoiDang}}</span><br/>
+               <span class="grey">Đăng bởi {{$tt->NguoiDang}}/ {{$dateM}} </span> <span><i class="far fa-eye"></i> {{$tt->SoLuotXem}}</span> <br/>
                <div class="line4 
                   des" data-maxlength="250">
                   <p> {!!$tt->TomTat!!}</p>

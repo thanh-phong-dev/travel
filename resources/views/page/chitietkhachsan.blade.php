@@ -98,10 +98,10 @@
          <ul class="nav nav-tabs" id="myTab">
             <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#summary"><span class="summary"></span><span class="hidetext">Giới thiệu</span>&nbsp;</a></li>
             <li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#roomrates"><span class="rates"></span><span class="hidetext">Chọn loại phòng</span>&nbsp;</a></li>
-            <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#preferences"><span class="preferences"></span><span class="hidetext">Dịch vụ</span>&nbsp;</a></li>
+            {{-- <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#preferences"><span class="preferences"></span><span class="hidetext">Dịch vụ</span>&nbsp;</a></li> --}}
             <li onclick="loadScript()" class=""><a data-toggle="tab" href="#maps"><span class="maps"></span><span class="hidetext">Maps</span>&nbsp;</a></li>
             <li onclick="mySelectUpdate(); trigerJslider(); trigerJslider2(); trigerJslider3(); trigerJslider4(); trigerJslider5(); trigerJslider6();" class=""><a data-toggle="tab" href="#reviews"><span class="reviews"></span><span class="hidetext">Đánh giá</span>&nbsp;</a></li>
-            <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#thingstodo"><span class="thingstodo"></span><span class="hidetext">Things to do</span>&nbsp;</a></li>
+            <li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#thingstodo"><span class="thingstodo"></span><span class="hidetext">Khám phá</span>&nbsp;</a></li>
          </ul>
          <div class="tab-content4">
             <!-- TAB 1 -->				
@@ -147,7 +147,7 @@
                            $formattedNum = number_format($num);?>
                         <span class="opensans green size24">{{ $formattedNum}}</span><br>
                         <span class="opensans lightgrey size12">VNĐ/Đêm</span><br><br>
-                        <span class="lred bold">3 left</span><br><br>
+                        {{-- <span class="lred bold">3 left</span><br><br> --}}
                         <a href="thanh-toan/{{$pks->id}}/{{$pks->TenKhongDau}}.html"><button class="btn btn-warning">Đặt phòng</button></a>	
                      </div>
                   </div>
@@ -357,7 +357,7 @@
                   </fieldset>
                   <textarea name="NoiDung" class="form-control" rows="3"></textarea>
                   <br/>
-                  <button onclick="errorMessage()" type="submit" class="btn-search5">Bình luận <span class="glyphicon glyphicon-arrow-down"></span></button>
+                  <button onclick="errorMessage()" type="submit" class="btn-search5">Bình luận </button>
                </form>
                <br/><br/><br/>
                <div class="wh66percent right offset-0">
@@ -374,91 +374,45 @@
             </div>
             <!-- TAB 6 -->					
             <div id="thingstodo" class="tab-pane fade">
-               <p class="hpadding20 opensans size16 dark bold">Attractions travelers recommend</p>
+               <p class="hpadding20 opensans size16 dark bold">Những nơi du lịch tại đây</p>
                <div class="line2"></div>
+               @foreach($tintucdulich as $tintuc)
                <div class="padding20">
                   <div class="col-md-4 offset-0">
-                     <a href="#"><img src="images/items2/item5.jpg" alt="" class="fwimg"></a>
+                  <a href="chi-tiet-tin-tuc/{{$tintuc->id}}/{{$tintuc->TieuDeKhongDau}}.html"><img src="upload/tintuc/{{$tintuc->Hinh}}" alt="{{$tintuc->TieuDe}}" class="fwimg"></a>
                   </div>
                   <div class="col-md-8 offset-0">
                      <div class="col-md-8 mediafix1">
-                        <span class="opensans dark size16 margtop1 margtop-5">Porto Limnionas Beach</span><br>
-                        <span class="lblue">“Just Great!!!”</span> 08/27/2013<br>
-                        <p class="margtop10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit augue, placerat quis est eget, cursus dictum felis. Morbi non dui vitae nisl pharetra placerat.</p>
+                     <a href="chi-tiet-tin-tuc/{{$tintuc->id}}/{{$tintuc->TieuDeKhongDau}}.html">
+                        <span class="opensans dark size16 margtop1 margtop-5">{{$tintuc->TieuDe}}</span><br>
+                     </a>
+                     <?php
+                     $thoigian=$tintuc->created_at; 
+                     $dateM=date("d-m-Y",strtotime($thoigian)); ?> 
+                        <span class="lblue"> <span><i class="far fa-eye"></i> {{$tintuc->SoLuotXem}}</span> </span>{{$dateM}}<br>
+                        <div class="des" data-maxlength="150">
+                           <p class="margtop10">{{$tintuc->TomTat}}</p>
+                        </div>
                         <div class="clearfix"></div>
                      </div>
                      <div class="col-md-4 center bordertype4">
                         <img src="images/user-rating-4.png" alt=""><br>
-                        <span class="opensans grey size14">31 reviews</span>
+                        <?php
+                        $data= $tintuc->comment;
+                        $countdata=count($data);
+                        ?>
+                        <span class="opensans grey size14">{{$countdata}} Bình luận</span>
                         <br><br><br><br>
-                        <button class="bookbtn mt1">More</button>	
+                        <a href="chi-tiet-tin-tuc/{{$tintuc->id}}/{{$tintuc->TieuDeKhongDau}}.html">
+                           <button class="bookbtn mt1">Xem thêm</button>	                        
+                        </a>
                      </div>
                   </div>
                   <div class="clearfix"></div>
                </div>
-               <div class="line2"></div>
-               <div class="padding20">
-                  <div class="col-md-4 offset-0">
-                     <a href="#"><img src="images/items2/item6.jpg" alt="" class="fwimg"></a>
-                  </div>
-                  <div class="col-md-8 offset-0">
-                     <div class="col-md-8 mediafix1">
-                        <span class="opensans dark size16 margtop1 margtop-5">Marathonissi (Turtle Island), Laganas</span><br>									
-                        <span class="lblue">“Beautiful”</span> 08/27/2013<br>
-                        <p class="margtop10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit augue, placerat quis est eget, cursus dictum felis. Morbi non dui vitae nisl pharetra placerat.</p>
-                        <div class="clearfix"></div>
-                     </div>
-                     <div class="col-md-4 center bordertype4">
-                        <img src="images/user-rating-5.png" alt=""><br>
-                        <span class="opensans grey size14">23 reviews</span>
-                        <br><br><br><br>
-                        <button class="bookbtn mt1">More</button>	
-                     </div>
-                  </div>
-                  <div class="clearfix"></div>
-               </div>
-               <div class="line2"></div>
-               <div class="padding20">
-                  <div class="col-md-4 offset-0">
-                     <a href="#"><img src="images/items2/item7.jpg" alt="" class="fwimg"></a>
-                  </div>
-                  <div class="col-md-8 offset-0">
-                     <div class="col-md-8 mediafix1">
-                        <span class="opensans dark size16 margtop1 margtop-5">Navagio Beach (Shipwreck Beach)</span><br>											
-                        <span class="lblue">“like being on a tropical island”</span> 08/27/2013<br>
-                        <p class="margtop10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit augue, placerat quis est eget, cursus dictum felis. Morbi non dui vitae nisl pharetra placerat.</p>
-                        <div class="clearfix"></div>
-                     </div>
-                     <div class="col-md-4 center bordertype4">
-                        <img src="images/user-rating-3.png" alt=""><br>
-                        <span class="opensans grey size14">17 reviews</span>
-                        <br><br><br><br>
-                        <button class="bookbtn mt1">More</button>	
-                     </div>
-                  </div>
-                  <div class="clearfix"></div>
-               </div>
-               <div class="line2"></div>
-               <div class="padding20">
-                  <div class="col-md-4 offset-0">
-                     <a href="#"><img src="images/items2/item8.jpg" alt="" class="fwimg"></a>
-                  </div>
-                  <div class="col-md-8 offset-0">
-                     <div class="col-md-8 mediafix1">
-                        <span class="opensans dark size16 margtop1 margtop-5">Blue Caves</span><br>										
-                        <span class="lblue">“A must see”</span> 08/27/2013<br>
-                        <p class="margtop10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit augue, placerat quis est eget, cursus dictum felis. Morbi non dui vitae nisl pharetra placerat.</p>
-                        <div class="clearfix"></div>
-                     </div>
-                     <div class="col-md-4 center bordertype4">
-                        <img src="images/user-rating-4.png" alt=""><br>
-                        <span class="opensans grey size14">10 reviews</span>
-                        <br><br><br><br>
-                        <button class="bookbtn mt1">More</button>	
-                     </div>
-                  </div>
-                  <div class="clearfix"></div>
-               </div>
+               @endforeach
+         
+
                <div class="line2"></div>
             </div>
          </div>
@@ -491,16 +445,26 @@
             @foreach($khachsanlienquan as $ks)
             <div class="line5"></div>
             <div class="cpadding1 ">
-               <a href="#"><img src="upload/khachsan/{{$ks->Hinh}}" class="left mr20" alt="" style="
+               <a href="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html"><img src="upload/khachsan/{{$ks->Hinh}}" class="left mr20" alt="" style="
                   width: 100px;
                   height: 66px;
                   "></a>
-               <a href="#" class="dark"><b>{{$ks->Ten}}</b></a><br>
+               <a href="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html" class="dark"><b>{{$ks->Ten}}</b></a><br>
                <?php 
                   $num = $ks->Gia;  
                   $formattedNum = number_format($num);?>
                <span class="opensans green bold size14">{{$formattedNum}}</span> <span class="grey">vnđ/đêm</span><br>
-               <img src="images/filter-rating-5.png" alt="">
+               @if($ks->Sao==1)
+               <img src="upload/sao/1.png" />
+               @elseif($ks->Sao==2)
+               <img src="upload/sao/2.png"/>
+               @elseif($ks->Sao==3)
+               <img src="upload/sao/3.png" />
+               @elseif($ks->Sao==4)
+               <img src="upload/sao/4.png" />
+               @elseif($ks->Sao==5)
+               <img src="upload/sao/5.png" />
+               @endif
             </div>
             @endforeach
             <br>
@@ -542,4 +506,14 @@
    .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
    .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
 </style>
+<script>
+   $(".des p").text(function(index, currentText) {
+     var maxLength = $(this).parent().attr('data-maxlength');
+     if (currentText.length >= maxLength) {
+       return currentText.substr(0, maxLength) + "...xem tiếp";
+     } else {
+       return currentText
+     }
+   });
+</script>
 @endsection
