@@ -74,6 +74,13 @@
                            </div>
                         </div>
                         <div class="form-group">
+                              <label>Giá phòng cuối tuần
+                              </label>
+                              <div>
+                                 <input type="text" name="GiaCuoiTuan" class="form-control" required  placeholder="Nhập giá phòng cuối tuần">
+                              </div>
+                           </div>
+                        <div class="form-group">
                            <label>Số Phòng
                            </label>
                            <div>

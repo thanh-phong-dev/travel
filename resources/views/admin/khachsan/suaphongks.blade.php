@@ -42,6 +42,11 @@
                               required placeholder="Nhập giá phòng" value="{{$phongkhachsan->Gia}}"></div>
                         </div>
                         <div class="form-group">
+                              <label>Giá phòng cuối tuần</label>
+                              <div><input data-parsley-type="alphanum" type="text" name="GiaCuoiTuan"  class="form-control"
+                                 required placeholder="Nhập giá phòng" value="{{$phongkhachsan->GiaCuoiTuan}}"></div>
+                           </div>
+                        <div class="form-group">
                            <label>Số người ở</label>
                            <div><input data-parsley-type="alphanum" type="text" name="SoNguoi"  class="form-control"
                               required placeholder="Nhập số người" value="{{$phongkhachsan->SoNguoi}}"></div>

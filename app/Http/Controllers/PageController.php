@@ -30,18 +30,20 @@ class PageController extends Controller
 {
     public function __construct()
     {
+        $dt=Carbon::now()->dayOfWeek;
         $danhmucanuong=DanhMucAnUong::all();
         $theloai=TheLoai::all();
         $loaitin=LoaiTin::all();
         $slide =Slide::all();
         $quangcao =QuangCao::all();
         $user = User::all();
-        $tinnoibat=KhachSan::where('NoiBat', '=', 1)->take(2)->get();
+        $tinnoibat=KhachSan::where('NoiBat', '=', 1)->where('HienThi',1)->take(2)->get();
         $tintucslide=TinTuc::orderBy('id', 'DESC')->take(10)->get();
         $danhsachloaitin=LoaiTin::orderBy('id', 'DESC')->take(5)->get();
         $gioithieu=GioiThieu::all();
-        $khachsan=KhachSan::orderBy('SoLuotXem', 'DESC')->take(9)->get();
+        $khachsan=KhachSan::orderBy('SoLuotXem', 'DESC')->where('HienThi',1)->take(9)->get();
         $tintuc=TinTuc::all();
+        view()->share('dt',$dt);
         view()->share('gioithieu',$gioithieu);
         view()->share('tinnoibat', $tinnoibat);
         view()->share('danhmucanuong', $danhmucanuong);
@@ -235,9 +237,13 @@ class PageController extends Controller
 
     public function timkiemkhachsantheogia(Request $request)
     {
+        $dt=Carbon::now()->dayOfWeek;
         $tukhoagia=changeNumber($request->tukhoa1);
         $tukhoagia1=changeNumber1($request->tukhoa1);
+        if($dt==1 || $dt==2 ||  $dt==3 ||  $dt==4)
         $khachsan=KhachSan::whereBetween('Gia',[$tukhoagia1, $tukhoagia])->get();
+        else 
+        $khachsan=KhachSan::whereBetween('GiaCuoiTuan',[$tukhoagia1, $tukhoagia])->get();
         return view('page.timkiemkhachsan', ['khachsan'=>$khachsan,'tukhoagia1'=>$tukhoagia1,'tukhoagia'=>$tukhoagia]);
     }
 

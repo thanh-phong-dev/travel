@@ -148,10 +148,18 @@
                            width: 117px;
                            "></a>
                         <a class="dark" href="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html"><b>{{$ks->Ten}}</b></a><br>
+                        <?php $date=$dt?>
+                        @if($date==1 || $date==2 || $date==3 || $date==4)
                         <?php 
                            $num = $ks->Gia;  
                            $formattedNum = number_format($num);?>
-                        <span class="opensans green bold size14">{{$formattedNum}} </span> <span class="grey">vnđ/đêm</span><br>
+                        <span class="opensans green bold size14">{{$formattedNum}} <sup>đ</sup></span> <span class="grey">/đêm</span><br>
+                        @elseif($date==5 || $date==6 || $date==0 )
+                        <?php 
+                        $num = $ks->GiaCuoiTuan;  
+                        $formattedNum = number_format($num);?>
+                        <span class="opensans green bold size14">{{$formattedNum}} <sup>đ</sup></span> <span class="grey">/đêm</span><br>
+                           @endif
                         @if($ks->Sao==1)
                         <img src="upload/sao/1.png" alt="" class="mt-10"/>
                         @elseif($ks->Sao==2)

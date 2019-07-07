@@ -42,6 +42,11 @@
                               required placeholder="Nhập giá trung bình" value="{{$tintuc->Gia}}"></div>
                         </div>
                         <div class="form-group">
+                              <label>Giá cuối tuần</label>
+                              <div><input data-parsley-type="alphanum" type="text" name="GiaCuoiTuan"  class="form-control"
+                                 required placeholder="Nhập giá cuối tuần" value="{{$tintuc->GiaCuoiTuan}}"></div>
+                           </div>
+                        <div class="form-group">
                            <label>Số phòng</label>
                            <div><input data-parsley-type="alphanum" type="text" name="SoPhong"  class="form-control"
                               required placeholder="Nhập số phòng" value="{{$tintuc->SoPhong}}"></div>

@@ -41,6 +41,7 @@ class KhachSanController extends Controller
         $khachsan->Ten = $request->Ten;
         $khachsan->TenKhongDau=changeTitle($request->Ten);
         $khachsan->Gia = $request->Gia;
+        $khachsan->GiaCuoiTuan = $request->GiaCuoiTuan;
         $khachsan->SoPhong = $request->SoPhong;
         $khachsan->idDiaDiem = $request->idDiaDiem;
         $khachsan->DiaChi = $request->DiaChi;
@@ -75,9 +76,10 @@ class KhachSanController extends Controller
     {
         $phongkhachsan = new PhongKhachSan();
         $phongkhachsan->TenPhong = $request->Ten;
-        $phongkhachsan->idkhachsan=$request->khachsan;
+        $phongkhachsan->idkhachsan=$request->idkhachsan;
         $phongkhachsan->TenKhongDau=changeTitle($request->Ten);
         $phongkhachsan->Gia = $request->Gia;
+        $phongkhachsan->GiaCuoiTuan = $request->GiaCuoiTuan;
         $phongkhachsan->SoNguoi = $request->SoNguoi;
         $phongkhachsan->NguoiLon = $request->NguoiLon;
         $phongkhachsan->SoPhong = $request->SoPhong;
@@ -97,7 +99,7 @@ class KhachSanController extends Controller
             $phongkhachsan->Hinh="";
         }
         $phongkhachsan->save();
-        return redirect('admin/khachsan/themphong')->with('thongbao','Thêm Thành Công');
+        return redirect('admin/khachsan/danhsach')->with('thongbao','Thêm Thành Công');
 
     }
 
@@ -112,6 +114,7 @@ class KhachSanController extends Controller
         $khachsan->Ten = $request->Ten;
         $khachsan->TenKhongDau=changeTitle($request->Ten);
         $khachsan->Gia = $request->Gia;
+        $khachsan->GiaCuoiTuan = $request->GiaCuoiTuan;
         $khachsan->SoPhong = $request->SoPhong;
         $khachsan->DiaChi = $request->DiaChi;
         $khachsan->Maps = $request->Maps;
@@ -158,6 +161,7 @@ class KhachSanController extends Controller
         $phongkhachsan=PhongKhachSan::find($id);
         $phongkhachsan->TenPhong = $request->TenPhong;
         $phongkhachsan->Gia = $request->Gia;
+        $phongkhachsan->GiaCuoiTuan = $request->GiaCuoiTuan;
         $phongkhachsan->SoNguoi = $request->SoNguoi;
         $phongkhachsan->NguoiLon = $request->NguoiLon;
         $phongkhachsan->TreEm = $request->TreEm;
@@ -185,13 +189,15 @@ class KhachSanController extends Controller
     $khachsan=KhachSan::find($id);
     return view('admin/khachsan/themphongks',['khachsan'=>$khachsan]);
     }
-    function postThemPhongks(Request $request)
+    function postThemPhongks(Request $request,$id)
     {
+         $khachsan=KhachSan::find($id);
         $phongkhachsan = new PhongKhachSan();
         $phongkhachsan->TenPhong = $request->TenPhong;
         $phongkhachsan->idkhachsan=$request->idkhachsan;
         $phongkhachsan->TenKhongDau=changeTitle($request->TenPhong);
         $phongkhachsan->Gia = $request->Gia;
+        $phongkhachsan->GiaCuoiTuan = $request->GiaCuoiTuan;
         $phongkhachsan->SoNguoi = $request->SoNguoi;
         $phongkhachsan->NguoiLon = $request->NguoiLon;
         $phongkhachsan->SoPhong = $request->SoPhong;
@@ -211,13 +217,22 @@ class KhachSanController extends Controller
             $phongkhachsan->Hinh="";
         }
         $phongkhachsan->save();
-      
+        return redirect('admin/khachsan/xem/'.$khachsan->id)->with('thongbao','Thêm Thành Công');
     }
 
     public function getXoa($id)
     {
         $khachsan=KhachSan::where('id',$id)->update(['HienThi'=>0]);
         return redirect('admin/khachsan/danhsach')->with('thongbao','Thêm Thành Công');
+    }
+
+    public function getXoaPhongKhachSan($id,$idkhachsan)
+    {
+        $khachsan=KhachSan::find($idkhachsan);
+        $phongkhachsan=PhongKhachSan::find($id);
+        $phongkhachsan->delete();
+        return redirect('admin/khachsan/xem/'.$khachsan->id)->with('thongbao','Thêm Thành Công');
+
     }
 }
 

@@ -207,8 +207,6 @@
       </div>	
       <div class="line3"></div>
       <div class="padding30">					
-      <span class="left size14 dark">Tổng tiền:</span>
-      <span class="right lred2 bold size18">$192.15</span>
       <div class="clearfix"></div>
       </div>
       </div><br>

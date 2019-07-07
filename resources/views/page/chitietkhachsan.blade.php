@@ -86,7 +86,9 @@
                >{{$data1}} Bình luận </p>
          </div>
          <div class="clearfix"></div>
-         <br>
+         <br><br><br>
+         <i class="fas fa-map-marker-alt"></i>
+         {{$khachsan->DiaChi}}
          
       </div>
       <!-- END OF RIGHT INFO -->
@@ -145,8 +147,8 @@
                         <?php 
                            $num = $pks->Gia;  
                            $formattedNum = number_format($num);?>
-                        <span class="opensans green size24">{{ $formattedNum}}</span><br>
-                        <span class="opensans lightgrey size12">VNĐ/Đêm</span><br><br>
+                        <span class="opensans green size24">{{ $formattedNum}} <sup>đ</sup></span><br>
+                        <span class="opensans lightgrey size12">phòng/đêm</span><br><br>
                         {{-- <span class="lred bold">3 left</span><br><br> --}}
                         <a href="thanh-toan/{{$pks->id}}/{{$pks->TenKhongDau}}.html"><button class="btn btn-warning">Đặt phòng</button></a>	
                      </div>
@@ -450,10 +452,18 @@
                   height: 66px;
                   "></a>
                <a href="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html" class="dark"><b>{{$ks->Ten}}</b></a><br>
+               <?php $date=$dt?>
+               @if($date==1 || $date==2 || $date==3 || $date==4)
                <?php 
                   $num = $ks->Gia;  
                   $formattedNum = number_format($num);?>
-               <span class="opensans green bold size14">{{$formattedNum}}</span> <span class="grey">vnđ/đêm</span><br>
+               <span class="opensans green bold size14">{{$formattedNum}} <sup>đ</sup></span> <span class="grey">phòng/đêm</span><br>
+               @elseif($date==5 || $date==6 || $date==0 )
+               <?php 
+               $num = $ks->GiaCuoiTuan;  
+               $formattedNum = number_format($num);?>
+               <span class="opensans green bold size14">{{$formattedNum}} <sup>đ</sup></span> <span class="grey">phòng/đêm</span><br>
+               @endif
                @if($ks->Sao==1)
                <img src="upload/sao/1.png" />
                @elseif($ks->Sao==2)

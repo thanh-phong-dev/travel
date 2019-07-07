@@ -31,6 +31,7 @@
                                                 <th>Tên phòng</th>
                                                 <th>Hình ảnh</th>
                                                 <th>Giá</th>
+                                                <th>Giá cuối tuần</th>
                                                 <th>Số người</th>
                                                 <th>Người lớn</th>
                                                 <th>Trẻ em</th>
@@ -48,12 +49,18 @@
                                                 <?php 
                                                 $num = $pks->Gia;  
                                                 $formattedNum = number_format($num);?>
-                                                <td>{{ $formattedNum}}</td>
+                                                <td>{{ $formattedNum}} VNĐ</td>
+                                                <?php 
+                                                $num = $pks->GiaCuoiTuan;  
+                                                $formattedNum = number_format($num);?>
+                                                <td>{{ $formattedNum}} VNĐ</td>
                                                 <td>{{$pks->SoNguoi}} người</td>
                                                 <td>{{$pks->NguoiLon}} người</td>
                                                 <td>{{$pks->TreEm}} người</td>
                                                 <td class="center"><i class="mdi mdi-table-edit"></i> <a href="admin/khachsan/suaphong/{{$pks->id}}" style="
-                                                color: blue;">Cập nhật </a></td>
+                                                color: blue;">Cập nhật | <a  href="admin/khachsan/xoaphongkhachsan/{{$pks->id}}/{{$pks->khachsan->id}}" style="
+                                                color: red;
+                                                " onclick="return confirmAction()" >Xóa</a></a></td>
                                                 <?php $i++; ?>
                                             </tr>
                                             @endforeach

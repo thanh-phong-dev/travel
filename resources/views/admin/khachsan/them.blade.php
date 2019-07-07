@@ -68,6 +68,13 @@
                            </div>
                         </div>
                         <div class="form-group">
+                           <label>Giá cuối tuần
+                           </label>
+                           <div>
+                              <input type="text" name="GiaCuoiTuan" id="pass2" class="form-control" required placeholder="Nhập giá cuối tuần của khách sạn">
+                           </div>
+                        </div>
+                        <div class="form-group">
                            <label>Số phòng</label>
                            <div>
                               <input type="text" name="SoPhong" class="form-control" required  placeholder="Nhập số phòng">
@@ -104,9 +111,10 @@
                         <div class="form-group">
                            <label>Maps</label>
                            <div>
-                              <input name="Maps" type="text" class="form-control" required placeholder="Nhập địa chỉ trên google maps">
+                              <input name="Maps" id="Maps" type="text" class="form-control" required placeholder="Nhập địa chỉ trên google maps">
                            </div>
                         </div>
+                    
                         <div class="form-group">
                            <label>Số điện thoại</label>
                            <div>
@@ -163,17 +171,7 @@
 </div>
 @endsection
 @section('script')
-//  <script type="text/javascript">
-   //     $(document).ready(function() {
-   //         $("#TheLoai").change(function() {
-   //             var idTheLoai = $(this).val();
-   //             $.get("admin/ajax/loaitin/" + idTheLoai, function(data) {
-   //                 $("#LoaiTin1").html(data);
-   //             });
-   //         });
-   //     });
-   // 
-</script>
+
 <script type="text/javascript">
    $(function () {
        $("#Ten").keyup(function () {
@@ -182,6 +180,14 @@
        }).keyup();
    });
 </script> 
+<script type="text/javascript">
+   $(function () {
+       $("#Maps").keyup(function () {
+           var text = $.trim($(this).val().toLowerCase());
+       $('#DiaChiMaps').val(text);
+       }).keyup();
+   });
+</script>
 <script>
    let today = new Date().toISOString().substr(0, 10);
    document.querySelector("#today").value = today;

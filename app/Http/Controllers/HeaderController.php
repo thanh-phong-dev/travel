@@ -9,17 +9,12 @@ use Illuminate\Routing\Controller;
 
 class HeaderController extends Controller
 {
-  public function getDanhSach()
-  {
-    $header=Header::orderBy('id','DESC')->get();
-    return view ('admin.header.danhsach',['header'=> $header]
-  );
-  }
 
-  //Thêm
- 
-  //POST Thêm
- 
+  public function getdanhsach()
+  {
+    $header=Header::all();
+    return view('admin.header.danhsach',['header'=>$header]);
+  }
 
   public function getSua($id)
   {

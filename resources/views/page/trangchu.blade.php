@@ -10,7 +10,7 @@
             <div class="tab-content3" id="myTabContent">
                <!--End of 1st tab -->
                <div id="hotel" class="tab-pane fade active in">
-                  <span class="opensans size18">Bạn muốn đi du lịch ở đâu?</span>
+               <span class="opensans size18">Bạn muốn đi du lịch ở đâu?</span>
                   <div class="">
                      <form action="tim-kiem-khach-san.html" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
@@ -153,10 +153,18 @@
                <div class="mhover none"><span class="icon"><a href="list4.html"><img src="images/spacer.png" alt=""/></a></span></div>
             </div>
             <div class="ctitle">{{$tt->Ten}}<a href="khach-san/{{$tt->id}}/{{$tt->TenKhongDau}}.html"><img src="images/spacer.png" alt=""/></a>
-               <?php 
+               <?php $date=$dt?>
+               @if($date==1 || $date==2 || $date==3 || $date==4)
+                  <?php 
                   $num = $tt->Gia;  
                   $formattedNum = number_format($num);?>
                <span>{{$formattedNum }} <sup>đ</sup></span>
+               @elseif($date==5 || $date==6 || $date==0 )
+               <?php 
+               $num = $tt->GiaCuoiTuan;  
+               $formattedNum = number_format($num);?>
+                <span>{{$formattedNum }} <sup>đ</sup></span>
+               @endif
             </div>
          </div>
       </div>
@@ -190,10 +198,18 @@
                   <span class="size13 grey mt-9"></span>
                </div>
                <div class="dealprice">
-                  <?php 
+                     <?php $date=$dt?>
+                  @if($date==1 || $date==2 || $date==3 || $date==4)
+                     <?php 
                      $num = $ks->Gia;  
                      $formattedNum = number_format($num);?>
                   <p class="size12 grey lh2">Từ <span class="price">{{$formattedNum}}<sup>đ</sup></span><br/>/ đêm</p>
+                  @elseif($date==5 || $date==6 || $date==0 )
+                  <?php 
+                  $num = $ks->GiaCuoiTuan;  
+                  $formattedNum = number_format($num);?>
+                   <p class="size12 grey lh2">Từ <span class="price">{{$formattedNum}}<sup>đ</sup></span><br/>/ đêm</p>
+                  @endif
                </div>
             </div>
          </div>

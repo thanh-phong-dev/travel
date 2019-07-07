@@ -45,7 +45,7 @@
       Route::post('sua/{id}','KhachSanController@postSua');
       Route::get('suaphong/{id}','KhachSanController@getSuaPhong');
       Route::get('themphongks/{id}','KhachSanController@getThemPhongKS');
-      Route::post('themphongks','KhachSanController@postThemPhongKS');
+      Route::post('themphongks/{id}','KhachSanController@postThemPhongKS');
       Route::post('suaphong/{id}','KhachSanController@postSuaPhong');
       Route::get('them','KhachSanController@getThem');
       Route::post('them','KhachSanController@postThem');
@@ -53,6 +53,8 @@
       Route::post('themphong','KhachSanController@postThemPhong');
       Route::get('xem/{id}','KhachSanController@getXem');
       Route::get('xoa/{id}','KhachSanController@getXoa');
+      Route::get('xoaphongkhachsan/{id}/{idkhachsan}','KhachSanController@getXoaPhongKhachSan');
+
     });
     //
       Route::group(['prefix'=>'comment'],function(){
@@ -84,7 +86,7 @@
      // Header
      Route::group(['prefix' => 'header'], function () {
       //admin/theloai/danhsach
-      Route::get('danhsach', 'HeaderController@getDanhSach');
+     Route::get('thongtincongty','HeaderController@getdanhsach');
       Route::get('sua/{id}', 'HeaderController@getSua');
       Route::post('sua/{id}', 'HeaderController@postSua');
   });

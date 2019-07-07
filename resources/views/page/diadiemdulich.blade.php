@@ -211,11 +211,22 @@
                               $data1=count($data);
                               ?>
                            <span class="size11 grey">{{$data1}} Bình luận</span><br/><br/>
-                           <?php 
-                              $num = $ks->Gia;  
-                              $formattedNum = number_format($num);?>
-                           <span class="green size18"><b></b> {{$formattedNum}} VNĐ</span><br/>
-                           <span class="size11 grey">vnđ/đêm</span><br/><br/><br/>
+                           <?php $date=$dt?>
+                           @if($date==1 || $date==2 || $date==3 || $date==4)
+                         <?php 
+                            $num = $ks->Gia;  
+                            $formattedNum = number_format($num);?>
+                         <span class="green size18"><b></b> {{$formattedNum}} VNĐ</span><br/>
+                         <span class="size11 grey">/đêm</span>
+                         @elseif($date==5 || $date==6 || $date==7 )
+                         <?php 
+                         $num = $ks->GiaCuoiTuan;  
+                         $formattedNum = number_format($num);?>
+                         <span class="green size18"><b></b> {{$formattedNum}} VNĐ</span><br/>
+                         <span class="size11 grey">/đêm</span>
+                         @endif
+                           
+                           <br/><br/><br/>
                            <form action="khach-san/{{$ks->id}}/{{$ks->TenKhongDau}}.html">
                               <button class="btn btn-warning" type="submit">Đặt ngay</button>	
                            </form>

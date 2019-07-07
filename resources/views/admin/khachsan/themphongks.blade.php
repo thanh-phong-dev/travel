@@ -34,7 +34,7 @@
                   <div class="alert alert-success">
                      {{session('thongbao')}}
                      @endif
-                     <form action="admin/khachsan/themphongks" method="POST" enctype="multipart/form-data">
+                  <form action="admin/khachsan/themphongks/{{$khachsan->id}}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <div class="form-group">
                            <label>Tên Phòng</label>
@@ -60,6 +60,13 @@
                               <input type="text" name="Gia" class="form-control" required  placeholder="Nhập giá phòng">
                            </div>
                         </div>
+                        <div class="form-group">
+                              <label>Giá phòng cuối tuần
+                              </label>
+                              <div>
+                                 <input type="text" name="GiaCuoiTuan" class="form-control" required  placeholder="Nhập giá phòng">
+                              </div>
+                           </div>
                         <div class="form-group">
                            <label>Số Phòng
                            </label>

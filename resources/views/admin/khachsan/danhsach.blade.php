@@ -25,6 +25,7 @@
                                                 <th>STT</th>
                                                 <th>Tên khách sạn</th>
                                                 <th>Giá phòng</th>
+                                                <th>Giá phòng cuối tuần</th>
                                                 <th>Đánh giá</th>
                                                 <th>Địa Chỉ</th>
                                                 <th>Hình</th>
@@ -41,6 +42,10 @@
                                                 <td>{{$tt->Ten}}</td>
                                                 <?php 
                                                 $num = $tt->Gia;  
+                                                $formattedNum = number_format($num);?>
+                                                <td>{{ $formattedNum}} <sup>đ</sup></td>
+                                                <?php 
+                                                $num = $tt->GiaCuoiTuan;  
                                                 $formattedNum = number_format($num);?>
                                                 <td>{{ $formattedNum}} <sup>đ</sup></td>
                                                 <td>{{$tt->Sao}} Sao</td>
