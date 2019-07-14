@@ -218,7 +218,7 @@
                               $formattedNum = number_format($num);?>
                            <span class="green size18"><b></b> {{$formattedNum}} VNĐ</span><br/>
                            <span class="size11 grey">/đêm</span>
-                           @elseif($date==5 || $date==6 || $date==7 )
+                           @elseif($date==5 || $date==6 || $date==0 )
                            <?php 
                            $num = $ks->GiaCuoiTuan;  
                            $formattedNum = number_format($num);?>

@@ -120,7 +120,7 @@
                @foreach($phongcuakhachsan as $pks)
                <div class="padding20">
                   <div class="col-md-4 offset-0">
-                     <a href="#"><img src="images/items2/item1.jpg" alt="" class="fwimg"></a>
+                  <img src="upload/khachsan/{{$pks->Hinh}}" alt="{{$pks->TenPhong}}" class="fwimg">
                   </div>
                   <div class="col-md-8 offset-0">
                      <div class="col-md-8 mediafix1">
@@ -144,11 +144,20 @@
                         </ul>
                      </div>
                      <div class="col-md-4 center bordertype4">
-                        <?php 
-                           $num = $pks->Gia;  
-                           $formattedNum = number_format($num);?>
+                       <?php $date=$dt?>
+                             @if($date==1 || $date==2 || $date==3 || $date==4)
+                           <?php 
+                              $num = $pks->Gia;  
+                              $formattedNum = number_format($num);?>
                         <span class="opensans green size24">{{ $formattedNum}} <sup>đ</sup></span><br>
                         <span class="opensans lightgrey size12">phòng/đêm</span><br><br>
+                        @elseif($date==5 || $date==6 || $date==0 )
+                           <?php 
+                           $num = $pks->GiaCuoiTuan;  
+                           $formattedNum = number_format($num);?>
+                            <span class="opensans green size24">{{ $formattedNum}} <sup>đ</sup></span><br>
+                            <span class="opensans lightgrey size12">phòng/đêm</span><br><br>
+                        @endif
                         {{-- <span class="lred bold">3 left</span><br><br> --}}
                         <a href="thanh-toan/{{$pks->id}}/{{$pks->TenKhongDau}}.html"><button class="btn btn-warning">Đặt phòng</button></a>	
                      </div>
@@ -275,8 +284,13 @@
                </div>
                <!-- End of collapse 8 -->				
             </div>
-            <!-- TAB 4 -->					
+            <!-- TAB 4 -->	
+               				
             <div id="maps" class="tab-pane fade">
+                  <p>
+                        <i class="fas fa-map-marker-alt"></i> 
+                          {{$khachsan->DiaChi}}
+                     </p>
                {!!$khachsan->Maps!!}
             </div>
             <!-- TAB 5 -->					

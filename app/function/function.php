@@ -27,9 +27,14 @@ function changeNumber($str)
 	$str=str_replace(";",'',$str);
 	return $str;
 }
+
+function changemoney($str){
+	$str=str_replace(",",'',$str);
+	return $str;
+}
+
 function changeNumber1($str)
 {
-
 	$str=strstr($str,';',true);
 	$str=str_replace(";",'',$str);
 	return $str;

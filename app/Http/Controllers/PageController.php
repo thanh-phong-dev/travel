@@ -18,9 +18,7 @@ use App\PhongKhachSan;
 use App\DatPhong;
 use App\DienDan;
 use App\GioiThieu;
-
 use App\ChiTietDienDan;
-
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +40,7 @@ class PageController extends Controller
         $danhsachloaitin=LoaiTin::orderBy('id', 'DESC')->take(5)->get();
         $gioithieu=GioiThieu::all();
         $khachsan=KhachSan::orderBy('SoLuotXem', 'DESC')->where('HienThi',1)->take(9)->get();
-        $tintuc=TinTuc::all();
+        $tintuc=TinTuc::where('HienThi',1)->get();
         view()->share('dt',$dt);
         view()->share('gioithieu',$gioithieu);
         view()->share('tinnoibat', $tinnoibat);
@@ -96,9 +94,9 @@ class PageController extends Controller
     {
         $phongkhachsan=PhongKhachSan::all();
         $khachsan=KhachSan::find($id);
-        $phongcuakhachsan=PhongKhachSan::where('idkhachsan', '=', $khachsan->id)->get();
+        $phongcuakhachsan=PhongKhachSan::where('idkhachsan', '=', $khachsan->id)->orderby('id','ASC')->get();
         $khachsanlienquan=KhachSan::where('DiaChi', 'like', $khachsan->DiaChi)->get()->take(5);
-        $tintucdulich=TinTuc::where('TieuDe','like',"%$khachsan->DiaChi%")->get()->take(4);
+        $tintucdulich=TinTuc::where('TieuDe','like',"%ĐÀ LẠT%")->get()->take(4);
         $tinhluotxem=KhachSan::where('id', $id)->update(['SoLuotXem' => $khachsan->SoLuotXem+1]);
         return view('page.chitietkhachsan', ['tintucdulich'=>$tintucdulich,'tinhluotxem'=>$tinhluotxem,'khachsan'=>$khachsan,'khachsanlienquan'=>$khachsanlienquan,'phongkhachsan'=>$phongkhachsan,'phongcuakhachsan'=>$phongcuakhachsan]);
     }
@@ -241,14 +239,15 @@ class PageController extends Controller
         $tukhoagia=changeNumber($request->tukhoa1);
         $tukhoagia1=changeNumber1($request->tukhoa1);
         if($dt==1 || $dt==2 ||  $dt==3 ||  $dt==4)
-        $khachsan=KhachSan::whereBetween('Gia',[$tukhoagia1, $tukhoagia])->get();
+        $khachsan=KhachSan::whereBetween('Gia',[$tukhoagia1, $tukhoagia])->where('HienThi',1)->get();
         else 
-        $khachsan=KhachSan::whereBetween('GiaCuoiTuan',[$tukhoagia1, $tukhoagia])->get();
+        $khachsan=KhachSan::whereBetween('GiaCuoiTuan',[$tukhoagia1, $tukhoagia])->where('HienThi',1)->get();
         return view('page.timkiemkhachsan', ['khachsan'=>$khachsan,'tukhoagia1'=>$tukhoagia1,'tukhoagia'=>$tukhoagia]);
     }
 
     public function sapxep(Request $request)
     {
+        $dt=Carbon::now()->dayOfWeek;
         $tukhoa=$request->tukhoa;
         if($tukhoa==1)
         $khachsan=KhachSan::orderby('Gia','asc')->where('HienThi',1)->get();
@@ -270,14 +269,14 @@ class PageController extends Controller
 
     public function diendan()
     {
-        $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(8)->get();
+        $khachsan=KhachSan::where('NoiBat',1)->where('HienThi',1)->orderby('id','desc')->take(8)->get();
         $diendan=DienDan::orderby('id','desc')->paginate(6);
         return view('page.diendan',['diendan'=>$diendan,'khachsan'=>$khachsan]);
     }
 
     public function chitietdiendan($id)
     {
-        $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(4)->get();
+        $khachsan=KhachSan::where('NoiBat',1)->where('HienThi',1)->orderby('id','desc')->take(4)->get();
         $diendan=DienDan::find($id);
         $tinhluotxem=DienDan::where('id', $id)->update(['LuotXem' => $diendan->LuotXem+1]);
         return view('page.chitietdiendan',['diendan'=>$diendan,'khachsan'=>$khachsan,'tinhluotxem'=>$tinhluotxem]);
@@ -316,4 +315,5 @@ class PageController extends Controller
         $diendan->save();
         return redirect("dien-dan.html")->with('thongbao', 'Thành công');
     }
+
 }

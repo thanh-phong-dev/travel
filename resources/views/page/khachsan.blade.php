@@ -217,7 +217,6 @@
                            <span class="green size18"><b></b> {{$formattedNum}} VNĐ</span><br/>
                            <span class="size11 grey">/đêm</span>
                            @endif
-
                            <br/><br/> 
                             <span style="
                             color: #00a561;
@@ -233,9 +232,11 @@
                               margin-top: 15px;
                             "></i>   {{$ks->DiaChi}}
                            </p>
-                           <p >
-                              {{$ks->TomTat}}
-                           </p>
+                           <span class="lblue"> <i class="far fa-eye"></i> {{$ks->SoLuotXem}} lượt xem </span>
+                        
+                           <div class="des" data-maxlength="150">
+                           <p> {!!$ks->TomTat!!}</p>
+                        </div>
                            <br/>
                            <ul class="hotelpreferences">
                               <li class="icohp-hairdryer"></li>
@@ -270,5 +271,18 @@
       let today = new Date().toISOString().substr(0, 10);
       document.querySelector("#datepicker").value = today;
        
+   </script>
+   <style>
+   
+   </style>
+   <script>
+      $(".des p").text(function(index, currentText) {
+        var maxLength = $(this).parent().attr('data-maxlength');
+        if (currentText.length >= maxLength) {
+          return currentText.substr(0, maxLength) + "...xem tiếp";
+        } else {
+          return currentText
+        }
+      });
    </script>
    @endsection

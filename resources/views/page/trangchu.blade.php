@@ -271,10 +271,10 @@
                         width: 255px;
                         " /></a>
                      <div class="m1">
-                        <h6 class="lh1 dark"><b>{{$tt->TieuDe}}</b></h6>
+                        <h6 class=" dark"><b>{{$tt->TieuDe}}</b></h6>
                         <h6 style="
                         color: green;
-                    ">Save up to 30%</h6>
+                    "></h6>
                      </div>
                   </li>
                   @endforeach

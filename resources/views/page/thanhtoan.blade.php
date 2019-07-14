@@ -34,7 +34,7 @@
                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                <div class="col-md-4">
                   <span class="size12">Họ và tên</span>
-                  <input type="text" name="HoTen" class="form-control " placeholder="">
+                  <input type="text" name="HoTen" class="form-control " placeholder="Nhập họ tên của bạn" required>
                </div>
                <div class="col-md-4 textleft margtop15">
                </div>
@@ -45,7 +45,7 @@
                </div>
                <div class="col-md-4 ">
                   <span class="size12">Số điện thoại liên lạc</span>	
-                  <input type="text" name="SoDienThoai" class="form-control" placeholder="">
+                  <input type="text" name="SoDienThoai" class="form-control" placeholder="" required>
                </div>
                <div class="clearfix"></div>
                <br>
@@ -98,7 +98,7 @@
                   <div class="mt15"><span class="dark">Email :</span><span class="red">*</span></div>
                </div>
                <div class="col-md-4">
-                  <input type="text" name="Email" class="form-control margtop10" placeholder="">
+                  <input type="text" name="Email" class="form-control margtop10" placeholder="" required>
                </div>
                <div class="col-md-4 textleft">
                </div>
@@ -160,7 +160,7 @@
       </tr>
       <tr>
       <td colspan="2"><span class="dark">Ngày trả phòng
-      <input type="date" name="NgayTra" class="form-control mySelectCalendar">
+      <input type="date" name="NgayTra" class="form-control mySelectCalendar" required>
       </td>
       </tr>
       </tr>
@@ -171,15 +171,27 @@
       </tr>
       <tr>
       <td colspan="2"><span class="dark">Tiền
+            <?php $date=$dt?>
+            @if($date==1 || $date==2 || $date==3 || $date==4)
       <?php 
          $num = $khachsan->Gia;  
          $formattedNum = number_format($num);?>
-      <input type="text" id="b" name="Tien" class="form-control" min="1" value="{{  $formattedNum }}"  onkeyup="tinh()">
+         
+      <input type="text" id="b" name="Tien" class="form-control" min="1" value="{{$khachsan->Gia}}"  onkeyup="tinh()">
+      @elseif($date==5 || $date==6 || $date==0 )
+      <input type="text" id="b" name="Tien" class="form-control" min="1" value="{{$khachsan->GiaCuoiTuan}}"  onkeyup="tinh()">
+      @endif
       </td>
       </tr>
       <tr>
+            <?php $date=$dt?>
+            @if($date==1 || $date==2 || $date==3 || $date==4)
       <td colspan="2"><span class="dark">Tổng tiền
-      <input type="text" id="result" name="TongTien" class="form-control" value="{{$formattedNum}}">
+      <input type="text" id="result" name="TongTien" class="form-control" value="{{$khachsan->Gia}}">
+      @elseif($date==5 || $date==6 || $date==0 )
+      <td colspan="2"><span class="dark">Tổng tiền
+            <input type="text" id="result" name="TongTien" class="form-control" value="{{$khachsan->GiaCuoiTuan}}">
+            @endif
       </td>
       </tr>
       <tr>
@@ -196,13 +208,24 @@
       <?php 
          $num = $khachsan->Gia;  
          $formattedNum = number_format($num);?>
+          <?php $date=$dt?>
+          @if($date==1 || $date==2 || $date==3 || $date==4)
       <td class="center">
-      {{$formattedNum}} <sup>đ</sup>/đêm                                
+      {{$ormattedNum}} <sup>đ</sup>/đêm                                
       <br>
       </td>
+      @elseif($date==5 || $date==6 || $date==0 )
+      <?php 
+         $num = $khachsan->GiaCuoiTuan;  
+         $formattedNum = number_format($num);?>
+      <td class="center">
+            {{  $formattedNum }} <sup>đ</sup>/đêm                                
+            <br>
+            </td>
+      @endif
       </tr>
       </tbody></table>
-      <button type="submit" class="bluebtn margtop20">Đặt Phòng</button>	
+      <button type="submit" class="bluebtn margtop20" onclick="confirmAction()">Đặt Phòng</button>	
       </form>
       </div>	
       <div class="line3"></div>
@@ -228,8 +251,6 @@
    document.querySelector("#today").value = today;
 </script>
 <script language="javascript">
-   var tramngin=",000 vnđ";
-   var trieu = ",000,000"
    // Hàm tính kết quả
    function tinh()
    {
@@ -237,28 +258,19 @@
      var a = document.getElementById("a");
      var b = document.getElementById("b");
      var result = document.getElementById("result");
-   if(a.value >= 10) {
-           // Tính tổng hai ô đầu tiên
-    
-       var tong = parseInt(a.value) * parseInt(b.value) ;
-     
-     // Gán giá trị vào ô thứ ba
-     // Phải kiểm tra tổng hai số này có bị lỗi hay không
+     var tong = parseInt(a.value) * parseInt(b.value);
+   
      if (!isNaN(tong)){
-       result.value = tong + trieu;
-     }
-   } else {
-             // Tính tổng hai ô đầu tiên
-    
-             var tong = parseInt(a.value) * parseInt(b.value) ;
-     
-     // Gán giá trị vào ô thứ ba
-     // Phải kiểm tra tổng hai số này có bị lỗi hay không
-     if (!isNaN(tong)){
-       result.value = tong + tramngin;
+       result.value = tong ;
+       
    }
    
    }
-   }
+   
 </script>
+ <script type="text/javascript">
+   function confirmAction() {
+        return confirm("Cảm ơn bạn đã đặt phòng chúng tôi sẽ liên hệ với bạn?")
+      }
+ </script>
 @endsection
