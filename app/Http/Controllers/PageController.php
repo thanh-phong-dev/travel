@@ -103,7 +103,7 @@ class PageController extends Controller
 
     public function chitiettintuc1($id)
     {
-        $khachsan=KhachSan::where('NoiBat',1)->orderby('id','desc')->take(4)->get();
+        $khachsan=KhachSan::where('NoiBat',1)->where('HienThi',1)->orderby('id','desc')->take(4)->get();
         $loaitin=LoaiTin::orderBy('id', 'DESC')->take(6)->get();
         $tintuc=TinTuc::find($id);
         $tinhluotxem=TinTuc::where('id', $id)->update(['SoLuotXem' => $tintuc->SoLuotXem+1]);
@@ -228,7 +228,7 @@ class PageController extends Controller
         $tukhoa1=$request->tukhoa1;
         // $tukhoagia=changeNumber($request->tukhoa1);
         // $tukhoagia1=changeNumber1($request->tukhoa1);
-        $khachsan=KhachSan::where('HienThi',1)->where('DiaChi','like', "%$tukhoa1%")->orwhere('Sao','like',"%$tukhoa1%")->get();
+        $khachsan=KhachSan::where('HienThi',1)->where('DiaChi','like', "%$tukhoa1%")->orwhere('Sao','like',$tukhoa1)->get();
         // $khachsan=KhachSan::whereBetween('Gia',[$tukhoagia1, $tukhoagia])->get();
         return view('page.timkiemkhachsan', ['khachsan'=>$khachsan,'tukhoa1'=>$tukhoa1]);
     }

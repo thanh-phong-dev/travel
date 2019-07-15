@@ -211,7 +211,7 @@
           <?php $date=$dt?>
           @if($date==1 || $date==2 || $date==3 || $date==4)
       <td class="center">
-      {{$ormattedNum}} <sup>đ</sup>/đêm                                
+      {{$formattedNum}} <sup>đ</sup>/đêm                                
       <br>
       </td>
       @elseif($date==5 || $date==6 || $date==0 )
@@ -219,13 +219,13 @@
          $num = $khachsan->GiaCuoiTuan;  
          $formattedNum = number_format($num);?>
       <td class="center">
-            {{  $formattedNum }} <sup>đ</sup>/đêm                                
+            {{$formattedNum}} <sup>đ</sup>/đêm                                
             <br>
             </td>
       @endif
       </tr>
       </tbody></table>
-      <button type="submit" class="bluebtn margtop20" onclick="confirmAction()">Đặt Phòng</button>	
+      <button type="submit" class="bluebtn margtop20" onsubmit="confirmAction()">Đặt Phòng</button>	
       </form>
       </div>	
       <div class="line3"></div>

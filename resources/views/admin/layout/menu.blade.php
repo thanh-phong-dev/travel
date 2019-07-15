@@ -166,7 +166,7 @@
              </ul>
           </li>
           {{-- Footer --}}
-          <li>
+          {{-- <li>
              <a href="javascript:void(0);" class="waves-effect"><i
                 class="mdi mdi-format-list-bulleted-type"></i><span>Thông Tin Công Ty<span
                 class="float-right menu-arrow"><i
@@ -174,7 +174,7 @@
              <ul class="submenu">
                 <li><a href="admin/header/thongtincongty">Thông tin công ty</a></li>
              </ul>
-          </li>
+          </li> --}}
           {{-- Header --}}
         
           {{-- Hinh ke slide --}} {{-- --}}

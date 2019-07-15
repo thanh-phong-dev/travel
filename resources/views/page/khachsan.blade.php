@@ -85,7 +85,7 @@
                      <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                   <div class="checkbox">
                      <label>
-                     <input type="checkbox"  name="tukhoa1" value="5" ><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 sao
+                     <input type="checkbox"  name="tukhoa1" value="5"><img src="images/filter-rating-5.png" class="imgpos1" alt=""/> 5 sao
                      </label>
                   </div>
                   <div class="checkbox">
